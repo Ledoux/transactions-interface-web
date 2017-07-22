@@ -2,7 +2,8 @@
   "ava": {
     "babel": {
       "presets": [
-        "latest"
+        "latest",
+        "react"
       ]
     },
     "require": [
@@ -12,20 +13,22 @@
   },
   "author": "Erwan Ledoux",
   "dependencies": {
+    "transactions-redux-normalizer": "latest"
   },
-  "description": "In the framework of transactions, this is a frontend plugin that implements smart reselect filters on your redux data app state",
+  "description": "In the framework of transactions, this is a frontend plugin that gives you very smart uis",
   "devDependencies": {
     "ava": "^0.18.2",
     "babel-cli": "^6.24.1",
     "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.22.0",
     "nodemon": "^1.11.0",
     "standard": "^7.0.1"
   },
   "license": "MIT",
   "main": "lib/index.js",
-  "name": "transactions-web-ui",
+  "name": "transactions-user-interface",
   "scripts": {
-    "compile": "babel --presets latest -d lib/ src/",
+    "compile": "babel --presets latest,react -d lib/ src/",
     "test": "ava -v",
     "dev": "npm run dev",
     "dev-watch": "nodemon src/index.js --watch src --exec \"npm run compile\""
