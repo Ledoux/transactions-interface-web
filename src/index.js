@@ -37,8 +37,9 @@ export { Avatar,
   Search,
   Title
 */
+  information
 }
-const transactionsUserInterface = { Avatar,
+const transactionsInterfaceWeb = { Avatar,
   BellButton,
   Button,
 //  Card,
@@ -58,4 +59,4 @@ const transactionsUserInterface = { Avatar,
   Title
 */
 }
-export default transactionsUserInterface
+export default transactionsInterfaceWeb

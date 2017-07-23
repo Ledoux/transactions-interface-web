@@ -13,7 +13,15 @@
   },
   "author": "Erwan Ledoux",
   "dependencies": {
-    "transactions-redux-normalizer": "latest"
+    "classnames": "2.2.5",
+    "transactions-interface-state": "latest",
+    "transactions-redux-normalizer": "latest",
+    "prop-types": "^15.5.4",
+    "react": "15.5.4",
+    "react-dom": "15.5.4",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0",
+    "pluralize": "^3.0.0"
   },
   "description": "In the framework of transactions, this is a frontend plugin that gives you very smart uis",
   "devDependencies": {
@@ -22,16 +30,17 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.22.0",
     "nodemon": "^1.11.0",
+    "node-sass": "^4.5.3",
     "standard": "^7.0.1"
   },
   "license": "MIT",
   "main": "lib/index.js",
-  "name": "transactions-user-interface",
+  "name": "transactions-interface-web",
   "scripts": {
-    "compile": "babel --presets latest,react -d lib/ src/",
+    "compile": "babel --presets latest,react -d lib/ src/ && node-sass --include-path src/styles src/styles/index.scss lib/styles/index.css",
     "test": "ava -v",
     "dev": "npm run dev",
     "dev-watch": "nodemon src/index.js --watch src --exec \"npm run compile\""
   },
-  "version": "0.0.1"
+  "version": "0.0.2"
 }

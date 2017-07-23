@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+.app {
+  background: linear-gradient(to bottom, grey, white);
+  min-height: 100vh; }
+
+.main {
+  border-color: black;
+  font-family: "Raleway", "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh; }
+
+img {
+  max-width: 100%;
+  width: auto;
+  height: auto; }
+
+.bell-button {
+  background: white;
+  border: 0;
+  cursor: pointer;
+  opacity: 0.75;
+  position: relative; }
+  .bell-button:focus {
+    opacity: 1;
+    outline: none; }
+  .bell-button__icon {
+    height: 1rem;
+    width: 1rem; }
+    @media (min-width: 52em) {
+      .bell-button__icon {
+        height: 1.5rem;
+        width: 1.5rem; } }
+  .bell-button__alert {
+    position: absolute;
+    top: -0.25rem;
+    right: 0.1rem;
+    height: 0.5rem;
+    width: 0.5rem; }
+    @media (min-width: 52em) {
+      .bell-button__alert {
+        height: 1rem;
+        width: 1rem;
+        right: -0.25rem; } }
+    .bell-button__alert__circle {
+      fill: #33aece;
+      cx: 0.35rem;
+      cy: 0.35rem;
+      r: 0.15rem; }
+      @media (min-width: 52em) {
+        .bell-button__alert__circle {
+          cx: 0.5rem;
+          cy: 0.5rem;
+          r: 0.4rem; } }

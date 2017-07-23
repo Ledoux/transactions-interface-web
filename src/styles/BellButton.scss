@@ -1,0 +1,42 @@
+.bell-button {
+  background: white;
+  border: 0;
+  cursor: pointer;
+  opacity: 0.75;
+  position: relative;
+  &:focus {
+    opacity: 1;
+    outline: none;
+  }
+  &__icon {
+    height: 1rem;
+    width: 1rem;
+    @media (min-width: $md) {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+  &__alert {
+    position: absolute;
+    top: -0.25rem;
+    right: 0.1rem;
+    height: 0.5rem;
+    width: 0.5rem;
+    @media (min-width: $md) {
+      height: 1rem;
+      width: 1rem;
+      right: -0.25rem;
+    }
+    &__circle {
+      fill: $blue;
+      cx: 0.35rem;
+      cy: 0.35rem;
+      r: 0.15rem;
+      @media (min-width: $md) {
+        cx: 0.5rem;
+        cy: 0.5rem;
+        r: 0.4rem;
+      }
+    }
+  }
+}
