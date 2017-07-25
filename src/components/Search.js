@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import { assignReselectorFilter } from 'transactions-redux-reselector'
 
 import IconButton from './IconButton'
-import { history } from '../containers/Root'
-import { requestTransactionsContent } from '../reducers/transactions'
 
 const AND_SEPARATOR = ' '
 const SEPARATOR = ':'
@@ -28,7 +26,9 @@ class Search extends Component {
     })
   }
   _handleAddContent () {
-    const { options } = this.props
+    const { history,
+      options
+    } = this.props
     const addOption = options && options[0]
     // we can add content only if we are in the one option case
     if (addOption) {
@@ -49,10 +49,10 @@ class Search extends Component {
       observedCollectionName,
       options,
       query,
-      requestTransactionsContent
+      requestTransactions
     } = this.props
     const requestQuery = (getRequestQuery && getRequestQuery(query)) || query
-    requestTransactionsContent('GET', options.map(({ collectionName }) => {
+    requestTransactions('GET', options.map(({ collectionName }) => {
       return { collectionName,
         query: requestQuery
       }
@@ -175,8 +175,5 @@ function mapStateToProps({
   ? { query }
   : {}
 }
-
-export default connect(mapStateToProps, {
-  assignReselectorFilter,
-  requestTransactionsContent
-})(Search)
+export default connect(mapStateToProps,
+  { assignReselectorFilter })(Search)

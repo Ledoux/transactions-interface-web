@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getNotStoredOptions } from 'transactions-redux-normalizer'
-import shortid from 'shortid'
-
 const { getFormEntity,
   getNewForm,
   resetForm,
-  setForm
-} = require('../reducers/form').default
-import { requestTransactions } from '../reducers/transactions'
-import { appSchema } from '../schemas'
+  setForm } = require('transactions-interface-state').default
+import { getNotStoredOptions } from 'transactions-redux-normalizer'
+import shortid from 'shortid'
+
 import { getSlugByEntityName } from '../utils/slug'
 
 class Card extends Component {
@@ -128,7 +125,6 @@ function mapStateToProps (state, ownProps) {
   }
 }
 export default connect(mapStateToProps, {
-  requestTransactions,
   resetForm,
   setForm
 })(Card)

@@ -2,13 +2,13 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
+const { closeInformation,
+  showInformation
+} = require('transactions-interface-state').default
 import { getNormalizerEntities } from 'transactions-redux-normalizer'
 
 import Button from './Button'
 import Icon from './Icon'
-import { closeInformation,
-  showInformation
-} from '../reducers/information'
 
 const BellButton = ({ closeInformation,
   isInformationActive,

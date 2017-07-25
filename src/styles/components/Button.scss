@@ -1,0 +1,92 @@
+.button {
+  background-color: $blue;
+  border: 1px solid transparent;
+  border-radius: $border-radius;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  fill: white;
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  text-align: center;
+
+  &--cta {
+    padding: 0.75rem;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  &--plain {
+    background-color: white;
+    border: 3px solid black;
+    border-radius: $border-radius;
+    color: black;
+    padding: 0.5rem;
+    @media (min-width: $lg) {
+      padding: 0.875em 1.375em;
+    }
+    .icon {
+      fill: black;
+      height: 1.5rem;
+      width: 1.5rem;
+      @media (min-width: $lg) {
+        height: 3rem;
+        width: 3rem;
+      }
+    }
+  }
+
+  &--border {
+    border: 1px solid $middle-grey;
+    border-radius: $border-radius;
+  }
+
+  &--inverse {
+    background-color: white;
+    color: $blue;
+    svg {
+      fill: $blue;
+    }
+  }
+
+  &--small {
+    font-size: 10px;
+  }
+
+  &--shadow {
+    box-shadow: $box-shadow;
+    &:hover,
+    &:focus {
+      box-shadow: $box-shadow-hover;
+    }
+    transition: all 0.4s ease-out;
+  }
+
+  &--disabled {
+    opacity: 0.1;
+  }
+
+  &--alive {
+    &:hover,
+    &:focus {
+      transform: scale(1.04);
+      transition: all 0.4s ease-out;
+    }
+  }
+
+  &--selected {
+    box-shadow: $box-shadow-hover;
+    transform: scale(1.04);
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

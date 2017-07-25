@@ -1,0 +1,18 @@
+.title {
+  color: $middle-font-color;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  overflow-y: hidden;
+  &__icon {
+    fill: $middle-grey;
+  }
+  &__text {
+    font-weight: 500;
+    padding-bottom: 0.25rem;
+    padding-top: 0.25rem;
+    &--icon {
+      padding-left: 1rem;
+    }
+  }
+}

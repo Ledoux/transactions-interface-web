@@ -6,10 +6,9 @@ import { getNormalizerEntities } from 'transactions-redux-normalizer'
 import Item from './Item'
 import Search from './Search'
 import Warning from './Warning'
-import { getFilteredElements } from '../reducers/reselector'
-import { ItemComponentsByCollectionName } from '../utils/views'
 
 const List = ({ collectionName,
+    ContentComponent,
     entities,
     entityName,
     exploreState,
@@ -26,13 +25,11 @@ const List = ({ collectionName,
     placeholder,
     RightInteractionComponent
   }) => {
-  let ContentComponent
   let warningMessage
   const entitiesLength = entities && entities.length
   if (collectionName && entitiesLength > 0) {
-    ContentComponent = ItemComponentsByCollectionName[collectionName]
     if (typeof ContentComponent === 'undefined') {
-      warningMessage = `Warning, we did not define yet an Item Component for ${collectionName}`
+      warningMessage = `Warning, there is no a defined Item Component for ${collectionName}`
     }
   } else {
     warningMessage = `No ${collectionName} found`
@@ -70,7 +67,26 @@ const List = ({ collectionName,
       )
     }
     {
-      isMore && (<div
+      warningMessage && (<div
+        className={classnames('list__child', {
+          'list__child--shrinked': isShrinked,
+          'list__child--shrinked--last': true,
+          'list__child--small': isSmall
+        })}
+        key='more-item'>
+          <Item
+            collectionName={collectionName}
+            exploreState={exploreState}
+            isLast
+            isShrinked={isShrinked}
+            isSmall
+            onExploreChange={onExploreChange}
+            text={warningMessage}
+          />
+      </div>)
+    }
+    {
+      ContentComponent && isMore && (<div
         className={classnames('list__child', {
           'list__child--shrinked': isShrinked,
           'list__child--shrinked--last': true,
@@ -88,21 +104,21 @@ const List = ({ collectionName,
           />
       </div>)
     }
-    { warningMessage && <Warning text={warningMessage} /> }
   </div>)
 }
 
 List.defaultProps = {
+  ItemComponentsByCollectionName: {},
   label: 'default'
 }
 
 // we get the entities from the pipelined entities
 // stored in the location reducer
-function mapStateToProps(state, {
-  collectionName,
+function mapStateToProps(state, { collectionName,
+  getFilteredElements,
   label
 }) {
-  const {
+  const { itemViewer,
     reselector: {
       WITH_SIGN_SEARCH: {
         query,
@@ -114,12 +130,16 @@ function mapStateToProps(state, {
   if (!collectionName) {
     return {}
   }
+  const ContentComponent = itemViewer[collectionName]
   // let s see if we need to restrict because of a search filter
   const entities = getFilteredElements(state,
     (query && sign === label)
     ? 'WITH_SIGN_SEARCH'
     : 'ALL',
     collectionName, { isRecursive: true })
-  return { entities }
+  // return
+  return { ContentComponent,
+    entities
+  }
 }
 export default connect(mapStateToProps)(List)

@@ -1,9 +1,9 @@
+import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import classnames from 'classnames'
+const { closeModal } = require('transactions-state-interface')
 
-import { closeModal } from '../reducers/modal'
 import IconButton from './IconButton'
 import { BUTTON_CLASS } from '../utils/classes'
 

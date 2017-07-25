@@ -1,0 +1,19 @@
+.list {
+  height: 100%;
+  text-align: center;
+  &--shrinked {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    box-shadow: $box-shadow;
+  }
+  &__child {
+    margin-bottom: 1rem;
+    &--shrinked {
+      margin-bottom: 0;
+      &--last {
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+      }
+    }
+  }
+}

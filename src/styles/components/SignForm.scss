@@ -1,0 +1,54 @@
+.sign-form {
+  color: $dark-grey;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  @media (min-width: $lg) {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  &__entry {
+    font-family: $font-family;
+    margin-bottom: 1rem;
+    margin-left: 5%;
+    margin-right: 5%;
+    @media (min-width: $lg) {
+      margin-bottom: 2rem;
+      margin-left: 20%;
+      margin-right: 20%;
+      width: 60%;
+    }
+    &__field {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    &__input {
+      border: 1px solid rgba(0,0,0,.125);
+      border-radius: 5px;
+      font-family: $font-family;
+      font-size: 20px;
+      height: 3rem;
+      letter-spacing: 2px;
+      width: 100%;
+    }
+  }
+  &__message {
+    font-size: 24px;
+    font-family: $font-family;
+    font-weight: bold;
+    color: $red;
+    margin-bottom: 1rem;
+  }
+  &__submit {
+    padding-top: 3.5rem;
+    margin-bottom: 2rem;
+  }
+  &__option {
+    font-size: 20px;
+    font-family: $font-family;
+  }
+  &__flash {
+    color: red;
+  }
+}

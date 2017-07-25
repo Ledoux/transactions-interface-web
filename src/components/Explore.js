@@ -1,11 +1,11 @@
 import classnames from 'classnames'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { requestTransactions } from 'transactions-redux-request'
 
 import Button from './Button'
 import List from './List'
 import Search from './Search'
-import { requestTransactionsContent } from '../reducers/transactions'
 
 class Explore extends Component {
   constructor (props) {
@@ -17,9 +17,10 @@ class Explore extends Component {
     this.onExploreChange = this._onExploreChange.bind(this)
   }
   _handleRequestContent () {
-    const { label,
+    const { dispatch,
+      label,
       options,
-      requestTransactionsContent
+      requestTransactions
     } = this.props
     // given the frontend options
     // we here adapt the options necessary for
@@ -32,8 +33,8 @@ class Explore extends Component {
         }
       })
     if (requestOptions.length > 0) {
-      requestTransactionsContent('GET', requestOptions,
-        `${label}-explore`)
+      dispatch(requestTransactions('GET', requestOptions,
+        { tag: `${label}-explore` }))
     }
   }
   componentDidMount () {
@@ -55,7 +56,8 @@ class Explore extends Component {
     this.setState(state)
   }
   render () {
-    const { getRequestQuery,
+    const { getFilteredElements,
+      getRequestQuery,
       inputTemplate,
       interactions,
       isAdd,
@@ -128,6 +130,7 @@ class Explore extends Component {
               }
               <List
                 exploreState={this.state}
+                getFilteredElements={getFilteredElements}
                 isEdit={isEdit}
                 isNew={isNew}
                 isShrinked={isShrinked}
@@ -144,6 +147,8 @@ class Explore extends Component {
   }
 }
 
-export default connect(null, {
-  requestTransactionsContent
-})(Explore)
+Explore.defaultProps = {
+  requestTransactions
+}
+
+export default connect(null, dispatch => { return { dispatch } })(Explore)

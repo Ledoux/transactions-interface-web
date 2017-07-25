@@ -1,0 +1,11 @@
+.check {
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  @media (min-width: $md) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  &__content {
+    padding-top: 1rem;
+  }
+}
