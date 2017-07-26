@@ -1,16 +1,16 @@
 // Breakpoints
-$mini: 30em;
-$sm: 40em; //648px
-$md: 52em;
-$lg: 64em; // 1280px;
-$xl: 75em;
+$mini: 30em !default;
+$sm: 40em !default; //648px
+$md: 52em !default;
+$lg: 64em !default; // 1280px;
+$xl: 75em !default;
 
 // Variables
-$border-radius: 0.25rem;
-$box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-$box-shadow-hover: 0 0 10px rgba(0,0,0,0.4);
-$font-family: "Raleway", "Helvetica Neue", Arial, sans-serif;
-$total-background-image: linear-gradient(to bottom, $light-grey, white);
-$light-font-color: $pastel-grey;
-$middle-font-color: $middle-grey;
-$dark-font-color: $dark-grey;
+$border-radius: 0.25rem !default;
+$box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) !default;
+$box-shadow-hover: 0 0 10px rgba(0,0,0,0.4) !default;
+$font-family: "Raleway", "Helvetica Neue", Arial, sans-serif !default;
+$total-background-image: linear-gradient(to bottom, $light-grey, white) !default;
+$light-font-color: $pastel-grey !default;
+$middle-font-color: $middle-grey !default;
+$dark-font-color: $dark-grey !default;

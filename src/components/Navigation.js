@@ -2,11 +2,11 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import classnames from 'classnames'
 import { connect } from 'react-redux'
+const { closeNavigation } = require('transactions-interface-state').default
 
 import Button from './Button'
 import Link from './Link'
 import LogoutLink from './LogoutLink'
-import { closeNavigation } from '../reducers/navigation'
 
 const Navigation = ({ activePathname,
   closeNavigation,

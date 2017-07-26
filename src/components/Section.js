@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import classnames from 'classnames'
 
-const PageSection = ({
+const Section = ({
   beforeSection,
   children,
   extraClass,
@@ -27,7 +27,7 @@ const PageSection = ({
   )
 }
 
-PageSection.propTypes = {
+Section.propTypes = {
   beforeSection: PropTypes.node,
   children: PropTypes.node.isRequired,
   extraClass: PropTypes.string,
@@ -35,4 +35,4 @@ PageSection.propTypes = {
   quilt: PropTypes.bool
 }
 
-export default PageSection
+export default Section

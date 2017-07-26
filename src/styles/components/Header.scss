@@ -1,0 +1,129 @@
+.header {
+  background-color: white;
+  box-shadow: $box-shadow;
+  color: $middle-font-color;
+  font-family: $font-family;
+  height: 5rem;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  &__title {
+    font-size: 12px;
+    font-weight: 500;
+    padding-left: 0.25rem;
+    width: 1rem;
+    @media (min-width: $md) {
+      font-size: 24px;
+      padding-right: 0.25rem;
+      width: auto;
+    }
+  }
+  &__navigation {
+    border-right: 2px solid $middle-font-color;
+    &--no-border {
+      border-right: 0;
+    }
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    position: relative;
+    &__item {
+      color: $middle-font-color;
+      cursor: pointer;
+      font-family: $font-family;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      &--active {
+        color: $blue;
+      }
+    }
+    &__alert {
+      position: absolute;
+      top: -0.5rem;
+      right: -0.5rem;
+      height: 1rem;
+      width: 1rem;
+      &__circle {
+        fill: $red;
+        cx: 0.5rem;
+        cy: 0.5rem;
+        r: 0.4rem;
+      }
+    }
+    &--name {
+      border-right: 0;
+      margin-right: 0;
+    }
+    @media (max-width: $md) {
+      display: none;
+    }
+  }
+  &__sign-cta {
+    position: absolute;
+    right: 4.5rem;
+    @media (min-width: $lg) {
+      padding-top: 0;
+      position: initial;
+      margin-right: 2rem;
+    }
+  }
+  &__name {
+    font-size: 18px;
+    font-weight: 500;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  &__avatar {
+    height: 2.5rem;
+    margin-right: 0.25rem;
+    width: 2.5rem;
+    @media (min-width: $md) {
+      height: 3.5rem;
+      margin-right: 1rem;
+      width: 3.5rem;
+    }
+    &__img {
+      height: 2.5rem;
+      width: 2.5rem;
+      @media (min-width: $md) {
+        height: 3.5rem;
+        width: 3.5rem;
+      }
+    }
+  }
+  &__bell {
+    margin-right: 0.25rem;
+    @media (min-width: $md) {
+      margin-right: 0;
+    }
+  }
+  &__hamburger {
+    background-color: $blue;
+    border-color: white;
+    border-radius: 100%;
+    box-shadow: $box-shadow;
+    color: white;
+    fill: white;
+    height: 3rem;
+    margin-right: 0.25rem;
+    @media (min-width: $md) {
+      margin-right: 1rem;
+    }
+    padding: 0.5rem;
+    text-align: center;
+    vertical-align: middle;
+    width: 3rem;
+    @media (min-width: $md) {
+      display: none;
+    }
+    &:hover,
+    &:focus {
+      box-shadow: $box-shadow-hover;
+    }
+    transition: all 0.4s ease-out;
+  }
+}

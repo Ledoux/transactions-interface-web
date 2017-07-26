@@ -22,6 +22,7 @@
     "react": "15.5.4",
     "react-debounce-input": "^3.0.0",
     "react-dom": "15.5.4",
+    "react-dropzone": "^3.13.1",
     "react-redux": "^5.0.5",
     "redux": "^3.6.0",
     "shortid": "^2.2.6"
@@ -45,7 +46,7 @@
     "test": "ava -v",
     "dev": "npm run dev",
     "dev-watch-sass": "node-sass -w src/styles -o lib/styles src/styles/index.scss",
-    "dev-watch-js": "nodemon src/index.js --watch src --ignore src/styles --exec \"npm run compile\"",
+    "dev-watch-js": "nodemon --watch src --ignore src/styles --exec \"npm run compile\"",
     "dev-watch": "concurrently \"npm run dev-watch-js\" \"npm run dev-watch-sass\""
   },
   "version": "0.0.2"

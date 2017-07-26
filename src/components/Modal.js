@@ -2,10 +2,9 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-const { closeModal } = require('transactions-state-interface')
+const { closeModal } = require('transactions-interface-state').default
 
 import IconButton from './IconButton'
-import { BUTTON_CLASS } from '../utils/classes'
 
 const Modal = class Modal extends Component {
   constructor () {
