@@ -7,8 +7,6 @@ const { getFormEntity,
 import { getNotStoredOptions } from 'transactions-redux-normalizer'
 import shortid from 'shortid'
 
-import { getSlugByEntityName } from '../utils/slug'
-
 class Card extends Component {
   constructor () {
     super ()
@@ -21,6 +19,7 @@ class Card extends Component {
     const { collectionName,
       entity,
       entityName,
+      getSlugByEntityName,
       isNew,
       newForm,
       notStoredOptions,
@@ -63,7 +62,6 @@ class Card extends Component {
       if (!newSlug) {
         const slug = getSlugByEntityName[entityName](
           Object.assign({}, entity, newEntity)) || shortid()
-        console.log('slug', slug)
         console.warn(`In the Card Component,
           you need a new entity with a slug`)
         return
@@ -105,6 +103,7 @@ class Card extends Component {
 function mapStateToProps (state, ownProps) {
   const { collectionName } = ownProps
   const { scrap,
+    // slugizer,
     user: {
       id,
       slug

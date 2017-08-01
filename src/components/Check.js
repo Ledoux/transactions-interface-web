@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+const { assignPipeline,
+  getFormEntity,
+  getPipelineEntities,
+  getPipelineEntity,
+  closeModal
+} = require('transactions-interface-state').default
 import { mergeReselector } from 'transactions-redux-reselector'
 import pluralize from 'pluralize'
 
 import Card from './Card'
-import CheckControls from './CheckControls'
 import Warning from './Warning'
-import { history } from '../containers/Root'
-const { getFormEntity } = require('../reducers/form').default
-import { closeModal } from '../reducers/modal'
-const { assignPipeline,
-  getPipelineEntities,
- getPipelineEntity } = require('../reducers/pipeline').default
-import { getFilteredElements } from '../reducers/reselector'
-import { requestTransactionsContent } from '../reducers/transactions'
 import { getIsEmptyFormByEntityName } from '../utils/form'
 import { getAutomaticSlug } from '../utils/navigation'
 import { CardComponentsByEntityName } from '../utils/views'
@@ -26,6 +23,10 @@ const withoutControlsCollectionNames = [
   'claimReviews',
   'links'
 ]
+
+const getDefaultIsEmptyForm = function () {
+  return false
+}
 
 // this is where one entity edition/post can be done
 class Check extends Component {
@@ -41,27 +42,29 @@ class Check extends Component {
     this.handleNavigation()
   }
   componentWillUnmount () {
-    this.props.mergeReselector({
+    this.props.dispatch(this.props.mergeReselector({
       WITH_SLUG: {
         slug: null
       }
-    })
+    }))
   }
   _handleNavigation () {
     const { assignPipeline,
       closeModal,
       collectionName,
+      dispatch,
       entityName,
       entities,
       entity,
       filterSlug,
+      history,
       isEdit,
       isNew,
       isModalActive,
       mergeReselector,
       newEntity,
       pipelineEntity,
-      requestTransactionsContent,
+      requestTransactions,
       slug
     } = this.props
     const { hasRequestedOnce } = this.state
@@ -70,10 +73,10 @@ class Check extends Component {
         // check first that we have data
         if (!entities && !hasRequestedOnce) {
           this.setState({hasRequestedOnce: true})
-          requestTransactionsContent('GET',
+          dispatch(requestTransactions('GET',
             [ { collectionName } ],
             `${collectionName}-check`
-          )
+          ))
           return
         }
         const automaticSlug = getAutomaticSlug(entities)
@@ -85,11 +88,11 @@ class Check extends Component {
         // because the filter slug is not set yet
         if (!isNew) {
           if (filterSlug !== slug) {
-            mergeReselector({
+            dispatch(mergeReselector({
               WITH_SLUG: {
                 slug
               }
-            })
+            }))
             return
           }
         }
@@ -104,25 +107,28 @@ class Check extends Component {
             // and that are sotred in the new form object
             if (!isNew || newEntity) {
               this.setState({ hasRequestedOnce: true })
-              requestTransactionsContent('GET',
+              dispatch(requestTransactions('GET',
                 [ { collectionName, query: { slug } } ],
                 collectionName
-              )
+              ))
             }
           }
         } else if (!pipelineEntity) {
-          assignPipeline({
+          dispatch(assignPipeline({
             [`${collectionName}ById`]: {
               [entity.id]: entity
-            }})
+            }}))
         }
       }
     }
   }
   render () {
     const { collectionName,
+      ContentComponent,
       entity,
       entityName,
+      getIsEmptyForm,
+      isControl,
       isEdit,
       isNotPipelinedYet,
       pipelineEntity,
@@ -133,30 +139,10 @@ class Check extends Component {
     if (!isNew && !isNotPipelinedYet && !entity) {
       warningMessage = `Warning, we did not find a good entity with the slug ${slug}`
     }
-    const ContentComponent = entityName && CardComponentsByEntityName[entityName]
     if (typeof ContentComponent === 'undefined') {
       warningMessage = `Warning, we did not define yet a Card for the ${entityName} entity`
     }
-    let getIsEmptyForm = getIsEmptyFormByEntityName[entityName]
-    if (!getIsEmptyForm) {
-      getIsEmptyForm = function () {
-        return false
-      }
-    }
     return (<main className='page check main'>
-      <div className='check__control'>
-        {
-          !withoutControlsCollectionNames.includes(collectionName) && <CheckControls
-            collectionName={collectionName}
-            entity={entity}
-            entityName={entityName}
-            getIsEmptyForm={getIsEmptyForm}
-            isEdit={isEdit}
-            isNew={isNew}
-            pipelineEntity={pipelineEntity}
-          />
-        }
-      </div>
       <div className='check__content'>
         {
           !warningMessage && ContentComponent && <Card
@@ -178,10 +164,12 @@ class Check extends Component {
 
 function mapStateToProps (state, {
   collectionName,
+  getFilteredElements,
   isNew,
   slug
 }) {
-  const {
+  const { cardViewer,
+    formSetter,
     modal: {
       isActive
     },
@@ -189,6 +177,8 @@ function mapStateToProps (state, {
       WITH_SLUG
     }
   } = state
+  const ContentComponent = entityName && cardViewer[entityName]
+  const getIsEmptyForm = (entityName && formSetter[entityName]) || getDefaultIsEmptyForm
   const slugEntities = collectionName && getFilteredElements(state,
     'WITH_SLUG', collectionName)
   const entity = collectionName && slugEntities && slugEntities.length === 1 && slugEntities[0]
@@ -197,18 +187,16 @@ function mapStateToProps (state, {
   const newEntity = collectionName && isNew &&
     getFormEntity(state, collectionName, '_NEW_')
   const pipelineEntities = getPipelineEntities(state, collectionName)
-  return {
+  return { ContentComponent,
     entities: pipelineEntities.length > 0 && pipelineEntities,
     entity,
     filterSlug: WITH_SLUG.slug,
+    getIsEmptyForm,
     isModalActive: isActive,
     newEntity,
     pipelineEntity
   }
 }
-export default connect(mapStateToProps, {
-  assignPipeline,
-  closeModal,
-  mergeReselector,
-  requestTransactionsContent
+export default connect(mapStateToProps, dispatch => {
+  return { dispatch }
 })(Check)

@@ -1,0 +1,94 @@
+.information {
+  display: none;
+  z-index: 3001; // needed to go above the fixed CTA button on home page
+  position: fixed;
+  top: 1.5rem;
+  left: 60%;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  user-select: none;
+  &--showing {
+    display: block;
+    opacity: 1;
+    animation: fade-in 0.5s cubic-bezier(0.25, 0.15, 0.3, 1.1) backwards;
+  }
+  &__list {
+    background: white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    color: black;
+    max-width: 400px;
+    position: absolute;
+    right: 0.5rem;
+    top: 50px;
+    z-index: 100;
+    // arrow
+    // before for an outline in grey, so arrow doesn't disappear on white background;
+    // after for real (white) arrow
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      pointer-events: none;
+    }
+    &::before {
+      right: 4.5rem;
+      @media (min-width: $md) {
+        right: 1.25rem;
+      }
+      border: 11px solid transparent;
+      border-bottom-color: $pastel-grey;
+    }
+    &::after {
+      right: 4.65rem;
+      @media (min-width: $md) {
+        right: 1.4rem;
+      }
+      border: 10px solid transparent;
+      border-bottom-color: white;
+    }
+    &__item {
+      background-color: white;
+      border-bottom: 1px solid $medium-grey;
+      color: $middle-font-color;
+      font-family: $font-family;
+      font-size: 14px;
+      font-weight: 500;
+      min-height: 4rem;
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      position: relative;
+      vertical-align: middle;
+      width: 100%; // needed when used with Button
+      &--seen {
+        // background-color: $blue;
+        opacity: 0.2;
+      }
+      &:hover {
+        background-color: $light-grey;
+      }
+      &:first-child {
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+      }
+      &:last-child {
+        border: 0;
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+        margin-bottom: 0.5rem;
+      }
+      &__text {
+        margin-bottom: 0.25rem;
+      }
+      &__html {
+      }
+      &__date {
+        color: $light-font-color;
+      }
+    }
+  }
+}

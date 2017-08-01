@@ -10,9 +10,9 @@ const Section = ({
   quilt
 }) => {
   const classes = classnames({
-    'page-section--first': first,
-    'page-section--quilt': quilt
-  }, 'page-section', extraClass)
+    'section--first': first,
+    'section--quilt': quilt
+  }, 'section', extraClass)
   return (
     <section className={classes}>
       <div className='page-section__inner'>

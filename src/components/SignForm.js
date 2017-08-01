@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+const { closeModal,
+  showModalWarning
+} = require('transactions-interface-state').default
 
 import Button from './Button'
 import Link from './Link'
-import { history } from '../containers/Root'
-import { SIGN_PATH } from '../utils/api'
-import { IS_WEB } from '../utils/config'
-import { BUTTON_CLASS } from '../utils/classes'
-
-import { showModalWarning, closeModal } from '../reducers/modal'
 
 function getReturnState () {
   let returnTo
@@ -60,7 +57,9 @@ class SignForm extends Component {
   }
   componentDidMount () {
     const { returnMessage } = this.state
-    const { showModalWarning } = this.props
+    const { history,
+      showModalWarning
+    } = this.props
     if (returnMessage) {
       showModalWarning('exclamation', returnMessage)
       history.push(window.location.pathname)
@@ -79,13 +78,14 @@ class SignForm extends Component {
       message,
       password,
       returnMessage,
-      returnTo
+      returnTo,
+      signPath
     } = this.props
     const isSignup = endpoint === 'signup'
     const isSignin = endpoint === 'signin'
     return (<form className='sign-form p3'
       method='post'
-      action={`${SIGN_PATH}/${endpoint}`}
+      action={`${signPath}/${endpoint}`}
     >
       {
         isSignup && (<div className='sign-form__entry'>
@@ -155,7 +155,7 @@ class SignForm extends Component {
       </div>
       <div className='sign-form__submit center'>
         <Button
-          className={`${BUTTON_CLASS} button--cta`}
+          className='button button--alive button--cta'
           type='submit'
         >
           { isSignin && 'Sign In' }

@@ -59,7 +59,7 @@ const Modal = class Modal extends Component {
           {
             isCtaCloseButton && (<div className='modal__close-cta'>
               <IconButton
-                className={`${BUTTON_CLASS} icon-button`}
+                className='button button--alive icon-button'
                 icon='cross'
                 onClick={onClickClose}
                 text='Close'
