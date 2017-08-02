@@ -113,11 +113,13 @@ class Check extends Component {
       ContentComponent,
       entity,
       entityName,
+      getFilteredElements,
       getIsEmptyForm,
-      isControl,
+      history,
       isEdit,
       isNotPipelinedYet,
       pipelineEntity,
+      requestTransactions,
       slug
     } = this.props
     let warningMessage
@@ -136,10 +138,13 @@ class Check extends Component {
             {...entity}
             collectionName={collectionName}
             entityName={entityName}
+            getFilteredElements={getFilteredElements}
             getIsEmptyForm={getIsEmptyForm}
+            history={history}
             isEdit={isEdit}
             isNew={isNew}
             isTitle
+            requestTransactions={requestTransactions}
           />
         }
         { warningMessage && <Warning text={warningMessage} /> }

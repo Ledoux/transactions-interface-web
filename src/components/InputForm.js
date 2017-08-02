@@ -20,9 +20,7 @@ class InputForm extends Component {
     return !value || value !== nextState.value
   }
   componentDidUpdate () {
-    const { assignReselectorFilter,
-      collectionName,
-      deleteFormEntity,
+    const { collectionName,
       dispatch,
       entity,
       entityId,
@@ -34,8 +32,6 @@ class InputForm extends Component {
       joinId,
       joinValue,
       label,
-      mergeForm,
-      mergeFormEntity,
       name,
       requestTransactions
     } = this.props

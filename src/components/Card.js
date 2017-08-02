@@ -8,6 +8,8 @@ const { getFormEntity,
 import { getNotStoredOptions } from 'transactions-redux-normalizer'
 import shortid from 'shortid'
 
+import Control from './Control'
+
 class Card extends Component {
   constructor () {
     super ()
@@ -88,14 +90,28 @@ class Card extends Component {
   }
   render () {
     const { ChildComponent,
+      getFilteredElements,
       getIsEmptyForm,
       entity,
-      entityName
+      entityName,
+      history,
+      isEdit,
+      requestTransactions
     } = this.props
+    const { isControl } = (ChildComponent.WrappedComponent || ChildComponent).defaultProps
     return (<div className='card'>
+      {
+        isControl && <Control
+          getIsEmptyForm={getIsEmptyForm}
+          history={history}
+          requestTransactions={requestTransactions}
+        />
+      }
       <ChildComponent
         {...entity}
+        getFilteredElements={getFilteredElements}
         getIsEmptyForm={getIsEmptyForm}
+        requestTransactions={requestTransactions}
       />
     </div>)
   }

@@ -88,6 +88,7 @@ class ContentPage extends Component {
   }
   render () {
     const { getFilteredElements,
+      history,
       isEdit,
       modeName,
       requestTransactions,
@@ -121,6 +122,7 @@ class ContentPage extends Component {
         collectionName={collectionName}
         entityName={entityName}
         getFilteredElements={getFilteredElements}
+        history={history}
         label={label}
         isEdit={isEdit}
         isNew={isNew}

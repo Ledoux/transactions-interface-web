@@ -4,6 +4,7 @@ import Button from './components/Button'
 import Card from './components/Card'
 import Check from './components/Check'
 import CheckInteraction from './components/CheckInteraction'
+import Control from './components/Control'
 import Explore from './components/Explore'
 import Header from './components/Header'
 import Icon from './components/Icon'
@@ -21,6 +22,7 @@ import Navigation from './components/Navigation'
 import Search from './components/Search'
 import Section from './components/Section'
 import SignForm from './components/SignForm'
+import SubmitButton from './components/SubmitButton'
 import Uploader from './components/Uploader'
 import Title from './components/Title'
 import TourButton from './components/TourButton'
@@ -34,6 +36,7 @@ export { Avatar,
   Check,
   CheckInteraction,
   ContentPage,
+  Control,
   Explore,
   Header,
   Icon,
@@ -51,6 +54,7 @@ export { Avatar,
   Section,
   Search,
   SignForm,
+  SubmitButton,
   Title,
   TourButton,
   Uploader,
@@ -63,6 +67,7 @@ const transactionsInterfaceWeb = { Avatar,
   Check,
   CheckInteraction,
   ContentPage,
+  Control,
   Explore,
   Header,
   Icon,
@@ -80,6 +85,7 @@ const transactionsInterfaceWeb = { Avatar,
   Search,
   Section,
   SignForm,
+  SubmitButton,
   Title,
   TourButton,
   Uploader,

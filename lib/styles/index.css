@@ -147,6 +147,31 @@ img {
     fill: #4a4a4a;
     width: 1.5rem; }
 
+.confirmation {
+  font-family: "Raleway", "Helvetica Neue", Arial, sans-serif;
+  text-align: center; }
+  .confirmation__illustration {
+    margin-bottom: 2rem; }
+    .confirmation__illustration__icon {
+      height: 2rem;
+      width: 2rem; }
+  .confirmation__title {
+    color: #777777;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 2rem; }
+  .confirmation__subtitle {
+    color: #c5c5c5;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 3rem; }
+
+.control {
+  position: fixed;
+  left: 45%;
+  top: 1.5rem;
+  z-index: 1001; }
+
 .explore {
   height: 100%;
   padding-left: 0.5rem;
@@ -576,7 +601,7 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
   opacity: 0; }
   @media (min-width: 64em) {
     .modal {
-      z-index: 1000; } }
+      z-index: 1003; } }
   .modal__close {
     background-color: white;
     color: #4a4a4a;
@@ -847,6 +872,15 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
     font-family: "Raleway", "Helvetica Neue", Arial, sans-serif; }
   .sign-form__flash {
     color: red; }
+
+.check-submit-button {
+  border-radius: 0.25rem;
+  font-size: 14px;
+  height: 2rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem; }
 
 .title {
   color: #777777;
