@@ -2,7 +2,8 @@ import Avatar from './components/Avatar'
 import BellButton from './components/BellButton'
 import Button from './components/Button'
 import Card from './components/Card'
-//import Check from './components/Check'
+import Check from './components/Check'
+import CheckInteraction from './components/CheckInteraction'
 import Explore from './components/Explore'
 import Header from './components/Header'
 import Icon from './components/Icon'
@@ -24,12 +25,15 @@ import Uploader from './components/Uploader'
 import Title from './components/Title'
 import TourButton from './components/TourButton'
 import Warning from './components/Warning'
+import ContentPage from './pages/ContentPage'
 
 export { Avatar,
   BellButton,
   Button,
-  //Card,
-  //Check,
+  Card,
+  Check,
+  CheckInteraction,
+  ContentPage,
   Explore,
   Header,
   Icon,
@@ -55,8 +59,10 @@ export { Avatar,
 const transactionsInterfaceWeb = { Avatar,
   BellButton,
   Button,
-  //Card,
-  //Check,
+  Card,
+  Check,
+  CheckInteraction,
+  ContentPage,
   Explore,
   Header,
   Icon,

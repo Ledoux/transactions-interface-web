@@ -139,6 +139,14 @@ img {
   .check__content {
     padding-top: 1rem; }
 
+.check-interaction {
+  background: transparent;
+  border: 0; }
+  .check-interaction svg {
+    height: 1.5rem;
+    fill: #4a4a4a;
+    width: 1.5rem; }
+
 .explore {
   height: 100%;
   padding-left: 0.5rem;
@@ -387,6 +395,82 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
   vertical-align: middle;
   margin-left: auto;
   margin-right: auto; }
+
+.information {
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  top: 1.5rem;
+  left: 60%;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  user-select: none;
+  z-index: 3001; }
+  .information--showing {
+    display: block;
+    opacity: 1;
+    animation: fade-in 0.5s cubic-bezier(0.25, 0.15, 0.3, 1.1) backwards; }
+  .information__list {
+    background: white;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    color: black;
+    max-width: 400px;
+    position: absolute;
+    right: 0.5rem;
+    top: 50px;
+    z-index: 100; }
+    .information__list::before, .information__list::after {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      pointer-events: none; }
+    .information__list::before {
+      right: 4.5rem;
+      border: 11px solid transparent;
+      border-bottom-color: #c5c5c5; }
+      @media (min-width: 52em) {
+        .information__list::before {
+          right: 1.25rem; } }
+    .information__list::after {
+      right: 4.65rem;
+      border: 10px solid transparent;
+      border-bottom-color: white; }
+      @media (min-width: 52em) {
+        .information__list::after {
+          right: 1.4rem; } }
+    .information__list__item {
+      background-color: white;
+      border-bottom: 1px solid #dcdddc;
+      color: #777777;
+      font-family: "Raleway", "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      min-height: 4rem;
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      position: relative;
+      vertical-align: middle;
+      width: 100%; }
+      .information__list__item--seen {
+        opacity: 0.2; }
+      .information__list__item:hover {
+        background-color: #fcfcfc; }
+      .information__list__item:first-child {
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem; }
+      .information__list__item:last-child {
+        border: 0;
+        border-bottom-left-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+        margin-bottom: 0.5rem; }
+      .information__list__item__text {
+        margin-bottom: 0.25rem; }
+      .information__list__item__date {
+        color: #c5c5c5; }
 
 .input-form {
   margin-bottom: 0.5rem; }
@@ -805,3 +889,7 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
     margin-bottom: 3rem; }
     .warning__modal__decision__button {
       margin-right: 1rem; }
+
+.content-page {
+  margin-bottom: 2rem;
+  padding-top: 5rem; }

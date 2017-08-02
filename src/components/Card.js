@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 const { getFormEntity,
   getNewForm,
   resetForm,
-  setForm } = require('transactions-interface-state').default
+  setForm
+} = require('transactions-interface-state').default
 import { getNotStoredOptions } from 'transactions-redux-normalizer'
 import shortid from 'shortid'
 
@@ -103,7 +104,6 @@ class Card extends Component {
 function mapStateToProps (state, ownProps) {
   const { collectionName } = ownProps
   const { scrap,
-    // slugizer,
     user: {
       id,
       slug

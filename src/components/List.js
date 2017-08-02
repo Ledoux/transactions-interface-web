@@ -8,23 +8,23 @@ import Search from './Search'
 import Warning from './Warning'
 
 const List = ({ collectionName,
-    ContentComponent,
-    entities,
-    entityName,
-    exploreState,
-    BottomInteractionComponent,
-    inputTemplate,
-    interactionExtra,
-    isSearch,
-    isShrinked,
-    isSmall,
-    label,
-    LeftInteractionComponent,
-    maxDisplayCount,
-    onExploreChange,
-    placeholder,
-    RightInteractionComponent
-  }) => {
+  ContentComponent,
+  entities,
+  entityName,
+  exploreState,
+  BottomInteractionComponent,
+  inputTemplate,
+  interactionExtra,
+  isSearch,
+  isShrinked,
+  isSmall,
+  label,
+  LeftInteractionComponent,
+  maxDisplayCount,
+  onExploreChange,
+  placeholder,
+  RightInteractionComponent
+}) => {
   let warningMessage
   const entitiesLength = entities && entities.length
   if (collectionName && entitiesLength > 0) {

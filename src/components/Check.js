@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 const { assignPipeline,
+  getAutomaticSlug,
   getFormEntity,
   getPipelineEntities,
   getPipelineEntity,
@@ -11,18 +12,6 @@ import pluralize from 'pluralize'
 
 import Card from './Card'
 import Warning from './Warning'
-import { getIsEmptyFormByEntityName } from '../utils/form'
-import { getAutomaticSlug } from '../utils/navigation'
-import { CardComponentsByEntityName } from '../utils/views'
-
-const withoutControlsCollectionNames = [
-  'articles',
-  'articleReviews',
-  'articleVerdicts',
-  'claims',
-  'claimReviews',
-  'links'
-]
 
 const getDefaultIsEmptyForm = function () {
   return false
@@ -42,16 +31,14 @@ class Check extends Component {
     this.handleNavigation()
   }
   componentWillUnmount () {
-    this.props.dispatch(this.props.mergeReselector({
+    this.props.dispatch(mergeReselector({
       WITH_SLUG: {
         slug: null
       }
     }))
   }
   _handleNavigation () {
-    const { assignPipeline,
-      closeModal,
-      collectionName,
+    const { collectionName,
       dispatch,
       entityName,
       entities,
@@ -61,7 +48,6 @@ class Check extends Component {
       isEdit,
       isNew,
       isModalActive,
-      mergeReselector,
       newEntity,
       pipelineEntity,
       requestTransactions,
@@ -164,12 +150,13 @@ class Check extends Component {
 
 function mapStateToProps (state, {
   collectionName,
+  entityName,
   getFilteredElements,
   isNew,
   slug
 }) {
   const { cardViewer,
-    formSetter,
+    formalizer,
     modal: {
       isActive
     },
@@ -178,7 +165,7 @@ function mapStateToProps (state, {
     }
   } = state
   const ContentComponent = entityName && cardViewer[entityName]
-  const getIsEmptyForm = (entityName && formSetter[entityName]) || getDefaultIsEmptyForm
+  const getIsEmptyForm = (entityName && formalizer[entityName]) || getDefaultIsEmptyForm
   const slugEntities = collectionName && getFilteredElements(state,
     'WITH_SLUG', collectionName)
   const entity = collectionName && slugEntities && slugEntities.length === 1 && slugEntities[0]

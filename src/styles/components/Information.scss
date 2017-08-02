@@ -1,6 +1,6 @@
 .information {
+  cursor: pointer;
   display: none;
-  z-index: 3001; // needed to go above the fixed CTA button on home page
   position: fixed;
   top: 1.5rem;
   left: 60%;
@@ -8,6 +8,7 @@
   bottom: 0;
   opacity: 0;
   user-select: none;
+  z-index: 3001; // needed to go above the fixed CTA button on home page
   &--showing {
     display: block;
     opacity: 1;

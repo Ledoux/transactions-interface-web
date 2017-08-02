@@ -11,6 +11,7 @@
 @import './components/Button.scss';
 @import './components/Card.scss';
 @import './components/Check.scss';
+@import './components/CheckInteraction.scss';
 @import './components/Explore.scss';
 @import './components/HamburgerButton.scss';
 @import './components/Header.scss';
@@ -29,3 +30,6 @@
 @import './components/Title.scss';
 @import './components/Uploader.scss';
 @import './components/Warning.scss';
+
+// pages
+@import './pages/ContentPage.scss';

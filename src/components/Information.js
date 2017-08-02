@@ -30,7 +30,6 @@ class Information extends Component {
     const { dispatch,
       isActive,
       isMockUser,
-      mergeNormalizerEntities,
       requestTransactions,
       notSeenNotifications,
       userId
@@ -60,8 +59,7 @@ class Information extends Component {
   }
   render () {
     const { activePathname,
-      closeInformation,
-      closeModal,
+      dispatch,
       isActive,
       notifications,
       showModal
@@ -69,7 +67,7 @@ class Information extends Component {
     const classes = classnames({
       'information--showing': isActive
     }, 'information')
-    return (<div className={classes} onClick={closeInformation}>
+    return (<div className={classes} onClick={() => dispatch(closeInformation())}>
       <nav className='information__list'
         onClick={e => {
           e.nativeEvent.stopImmediatePropagation() // Prevent click bubbling and closing modal
