@@ -5,6 +5,7 @@ import Card from './components/Card'
 import Check from './components/Check'
 import CheckInteraction from './components/CheckInteraction'
 import Control from './components/Control'
+import EditButton from './components/EditButton'
 import Explore from './components/Explore'
 import Header from './components/Header'
 import Icon from './components/Icon'
@@ -37,6 +38,7 @@ export { Avatar,
   CheckInteraction,
   ContentPage,
   Control,
+  EditButton,
   Explore,
   Header,
   Icon,
@@ -68,6 +70,7 @@ const transactionsInterfaceWeb = { Avatar,
   CheckInteraction,
   ContentPage,
   Control,
+  EditButton,
   Explore,
   Header,
   Icon,

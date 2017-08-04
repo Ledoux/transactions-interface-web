@@ -527,7 +527,7 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
   padding-top: 0.5rem;
   position: relative;
   overflow: hidden;
-  transition: all ease 0.5s; }
+  transition: all 0.4s ease-out; }
   .item--shrinked {
     border: 0;
     border-bottom: 1px solid #dcdddc;
@@ -880,7 +880,8 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
   padding-left: 1.5rem;
-  padding-right: 1.5rem; }
+  padding-right: 1.5rem;
+  transition: all 0.4s ease-out; }
 
 .title {
   color: #777777;

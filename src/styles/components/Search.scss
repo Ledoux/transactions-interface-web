@@ -6,7 +6,7 @@
     border-radius: $border-radius;
     cursor: pointer;
     height: 100%;
-    transition: all 0.4s ease-out;
+    transition: $transition;
     @media (min-width: $md) {
       width: 8.33333%;
     }

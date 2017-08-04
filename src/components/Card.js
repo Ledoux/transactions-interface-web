@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 const { getFormEntity,
   getNewForm,
+  getTransactionsProps,
   resetForm,
   setForm
 } = require('transactions-interface-state').default
@@ -89,29 +90,22 @@ class Card extends Component {
     this.props.resetForm()
   }
   render () {
-    const { ChildComponent,
-      getFilteredElements,
-      getIsEmptyForm,
-      entity,
-      entityName,
-      history,
-      isEdit,
-      requestTransactions
+    const { entity,
+      ChildComponent,
+      getIsEmptyForm
     } = this.props
     const { isControl } = (ChildComponent.WrappedComponent || ChildComponent).defaultProps
+    const transactionsProps = getTransactionsProps(this.props)
     return (<div className='card'>
       {
         isControl && <Control
           getIsEmptyForm={getIsEmptyForm}
-          history={history}
-          requestTransactions={requestTransactions}
+          {...transactionsProps}
         />
       }
       <ChildComponent
         {...entity}
-        getFilteredElements={getFilteredElements}
-        getIsEmptyForm={getIsEmptyForm}
-        requestTransactions={requestTransactions}
+        {...transactionsProps}
       />
     </div>)
   }

@@ -8,7 +8,7 @@
   padding-top: 0.5rem;
   position: relative;
   overflow: hidden;
-  transition: all ease 0.5s;
+  transition: $transition;
   &--shrinked {
     border: 0;
     border-bottom: 1px solid $medium-grey;

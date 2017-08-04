@@ -1,22 +1,25 @@
 import classnames from 'classnames'
 import React from 'react'
+const { getTransactionsProps } = require('transactions-interface-state').default
 
-const Item = ({ BottomInteractionComponent,
-  className,
-  collectionName,
-  ContentComponent,
-  exploreState,
-  interactionExtra,
-  isLast,
-  isShrinked,
-  isSmall,
-  entity,
-  entityName,
-  LeftInteractionComponent,
-  onExploreChange,
-  RightInteractionComponent,
-  text
-}) => {
+const Item = (props) => {
+  const { BottomInteractionComponent,
+    className,
+    collectionName,
+    ContentComponent,
+    exploreState,
+    interactionExtra,
+    isLast,
+    isShrinked,
+    isSmall,
+    entity,
+    entityName,
+    LeftInteractionComponent,
+    onExploreChange,
+    RightInteractionComponent,
+    text
+  } = props
+  const transactionsProps = getTransactionsProps(props)
   return (<div className={classnames(className || 'item', {
     'item--shrinked': isShrinked,
     'item--shrinked--last': isShrinked && isLast,
@@ -33,6 +36,7 @@ const Item = ({ BottomInteractionComponent,
           onExploreChange={onExploreChange}
           {...entity}
           {...interactionExtra}
+          {...transactionsProps}
         />
       </div>)
     }
@@ -44,6 +48,7 @@ const Item = ({ BottomInteractionComponent,
         ContentComponent && <ContentComponent
           collectionName={collectionName}
           {...entity}
+          {...transactionsProps}
         />
       }
       {
@@ -63,6 +68,7 @@ const Item = ({ BottomInteractionComponent,
           onExploreChange={onExploreChange}
           {...entity}
           {...interactionExtra}
+          {...transactionsProps}
         />
       </div>)
     }
@@ -75,6 +81,7 @@ const Item = ({ BottomInteractionComponent,
           onExploreChange={onExploreChange}
           {...entity}
           {...interactionExtra}
+          {...transactionsProps}
         />
       </div>)
     }

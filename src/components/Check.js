@@ -5,6 +5,7 @@ const { assignPipeline,
   getFormEntity,
   getPipelineEntities,
   getPipelineEntity,
+  getTransactionsProps,
   closeModal
 } = require('transactions-interface-state').default
 import { mergeReselector } from 'transactions-redux-reselector'
@@ -130,6 +131,7 @@ class Check extends Component {
     if (typeof ContentComponent === 'undefined') {
       warningMessage = `Warning, we did not define yet a Card for the ${entityName} entity`
     }
+    const transactionsProps = getTransactionsProps(this.props)
     return (<main className='page check main'>
       <div className='check__content'>
         {
@@ -138,13 +140,9 @@ class Check extends Component {
             {...entity}
             collectionName={collectionName}
             entityName={entityName}
-            getFilteredElements={getFilteredElements}
             getIsEmptyForm={getIsEmptyForm}
-            history={history}
-            isEdit={isEdit}
-            isNew={isNew}
             isTitle
-            requestTransactions={requestTransactions}
+            {...transactionsProps}
           />
         }
         { warningMessage && <Warning text={warningMessage} /> }

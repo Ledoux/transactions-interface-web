@@ -2,29 +2,31 @@ import classnames from 'classnames'
 import React from 'react'
 import { connect } from 'react-redux'
 import { getNormalizerEntities } from 'transactions-redux-normalizer'
+const { getTransactionsProps } = require('transactions-interface-state').default
 
 import Item from './Item'
 import Search from './Search'
 import Warning from './Warning'
 
-const List = ({ collectionName,
-  ContentComponent,
-  entities,
-  entityName,
-  exploreState,
-  BottomInteractionComponent,
-  inputTemplate,
-  interactionExtra,
-  isSearch,
-  isShrinked,
-  isSmall,
-  label,
-  LeftInteractionComponent,
-  maxDisplayCount,
-  onExploreChange,
-  placeholder,
-  RightInteractionComponent
-}) => {
+const List = (props) => {
+  const { collectionName,
+    ContentComponent,
+    entities,
+    entityName,
+    exploreState,
+    BottomInteractionComponent,
+    inputTemplate,
+    interactionExtra,
+    isSearch,
+    isShrinked,
+    isSmall,
+    label,
+    LeftInteractionComponent,
+    maxDisplayCount,
+    onExploreChange,
+    placeholder,
+    RightInteractionComponent
+  } = props
   let warningMessage
   const entitiesLength = entities && entities.length
   if (collectionName && entitiesLength > 0) {
@@ -37,6 +39,7 @@ const List = ({ collectionName,
   const displayedLength = Math.min(maxDisplayCount, entitiesLength)
   const isNotTotal = maxDisplayCount && entitiesLength > maxDisplayCount
   const isMore = maxDisplayCount && isNotTotal
+  const transactionsProps = getTransactionsProps(props)
   return (<div className={classnames('list', {
     'list--shrinked': isShrinked
   })}>
@@ -62,6 +65,7 @@ const List = ({ collectionName,
               LeftInteractionComponent={LeftInteractionComponent}
               onExploreChange={onExploreChange}
               RightInteractionComponent={RightInteractionComponent}
+              {...transactionsProps}
             />
         </div>)
       )

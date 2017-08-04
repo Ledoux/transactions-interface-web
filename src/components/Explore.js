@@ -2,6 +2,7 @@ import classnames from 'classnames'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { requestTransactions } from 'transactions-redux-request'
+const { getTransactionsProps } = require('transactions-interface-state').default
 
 import Button from './Button'
 import List from './List'
@@ -61,8 +62,6 @@ class Explore extends Component {
       inputTemplate,
       interactions,
       isAdd,
-      isEdit,
-      isNew,
       isShrinked,
       isSmall,
       label,
@@ -77,6 +76,7 @@ class Explore extends Component {
     selectedOptions.sort((a, b) => a.collectionName - b.collectionName)
     const isSelection = options && options.length > 1
     const isLists = selectedOptions.length > 0
+    const transactionsProps = getTransactionsProps(this.props)
     return (<div className='explore'>
       <div className={classnames('explore__search', {
         'explore__search--shrinked': isShrinked
@@ -130,14 +130,12 @@ class Explore extends Component {
               }
               <List
                 exploreState={this.state}
-                getFilteredElements={getFilteredElements}
-                isEdit={isEdit}
-                isNew={isNew}
                 isShrinked={isShrinked}
                 isSmall={isSmall}
                 label={label}
                 onExploreChange={this.onExploreChange}
                 {...selectedOption}
+                {...transactionsProps}
               />
             </div>)
           })
