@@ -1,1 +1,3 @@
-src/
+src/components
+src/pages
+src/index.js
