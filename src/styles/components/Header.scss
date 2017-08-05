@@ -38,7 +38,7 @@
       font-weight: 500;
       text-decoration: none;
       &--active {
-        color: $blue;
+        color: $medium-blue;
       }
     }
     &__alert {
@@ -102,7 +102,7 @@
     }
   }
   &__hamburger {
-    background-color: $blue;
+    background-color: $medium-blue;
     border-color: white;
     border-radius: 100%;
     box-shadow: $box-shadow;

@@ -19,10 +19,10 @@
     margin-bottom: 0.5rem;
     &__child {
       background-color: white;
-      color: $blue;
+      color: $medium-blue;
       margin-right: 0.5rem;
       &--selected {
-        background-color: $blue;
+        background-color: $medium-blue;
         color: white;
       }
     }

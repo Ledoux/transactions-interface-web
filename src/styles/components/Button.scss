@@ -1,5 +1,5 @@
 .button {
-  background-color: $blue;
+  background-color: $medium-blue;
   border: 1px solid transparent;
   border-radius: $border-radius;
   color: white;
@@ -46,9 +46,9 @@
 
   &--inverse {
     background-color: white;
-    color: $blue;
+    color: $medium-blue;
     svg {
-      fill: $blue;
+      fill: $medium-blue;
     }
   }
 
