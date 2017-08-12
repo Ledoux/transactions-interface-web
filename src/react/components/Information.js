@@ -22,8 +22,8 @@ class Information extends Component {
       this.setState({ hasRequestedOnce: true })
       dispatch(requestTransactions('GET', [{
         collectionName: 'notifications',
-        query: { userId }
-      }], 'notifications'))
+        query: { userId },
+      }], { tag: 'notifications' }))
     }
   }
   componentDidUpdate (prevProps) {
@@ -53,7 +53,7 @@ class Information extends Component {
             userId
           },
           update: { isSeen: true }
-        }]))
+        }], { tag: 'notifications' }))
       }
     }
   }

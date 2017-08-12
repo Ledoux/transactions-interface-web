@@ -1,0 +1,37 @@
+.icon-button {
+  cursor: pointer;
+  height: 2rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  &:focus {
+    outline: none;
+  }
+  svg {
+    height: 1rem;
+    width: 1rem;
+  }
+  p {
+    font-family: $font-family;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 0.5rem;
+  }
+  &--no-text {
+    background-color: white;
+    border: 1px solid $medium-grey;
+    border-left: 0;
+    padding: 0.25rem;
+    &--clicked {
+      background-color: $pastel-grey;
+    }
+    &--first {
+      border-left: 1px solid $medium-grey;
+      border-bottom-left-radius: $border-radius;
+      border-top-left-radius: $border-radius;
+    }
+    &--last {
+      border-bottom-right-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+    }
+  }
+}

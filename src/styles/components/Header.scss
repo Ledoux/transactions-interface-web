@@ -11,15 +11,19 @@
   position: fixed;
   width: 100%;
   z-index: 1000;
-  &__title {
-    font-size: 12px;
-    font-weight: 500;
-    padding-left: 0.25rem;
-    width: 1rem;
-    @media (min-width: $md) {
-      font-size: 24px;
-      padding-right: 0.25rem;
-      width: auto;
+  &__link {
+    color: $middle-font-color;
+    text-decoration: none;
+    &__title {
+      font-size: 12px;
+      font-weight: 500;
+      padding-left: 0.25rem;
+      width: 1rem;
+      @media (min-width: $md) {
+        font-size: 24px;
+        padding-right: 0.25rem;
+        width: auto;
+      }
     }
   }
   &__navigation {

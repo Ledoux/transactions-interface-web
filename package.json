@@ -17,15 +17,13 @@
     "transactions-interface-state": "latest",
     "transactions-redux-normalizer": "latest",
     "transactions-redux-reselector": "latest",
-    "pluralize": "^3.0.0",
     "prop-types": "^15.5.4",
     "react": "15.5.4",
     "react-debounce-input": "^3.0.0",
     "react-dom": "15.5.4",
     "react-dropzone": "^3.13.1",
     "react-redux": "^5.0.5",
-    "redux": "^3.6.0",
-    "shortid": "^2.2.6"
+    "redux": "^3.6.0"
   },
   "description": "In the framework of transactions, this is a frontend plugin that gives you very smart uis",
   "devDependencies": {
@@ -36,7 +34,6 @@
     "concurrently": "^3.1.0",
     "nodemon": "^1.11.0",
     "node-sass": "^4.5.3",
-    "shortid": "^2.2.6",
     "standard": "^7.0.1"
   },
   "license": "MIT",

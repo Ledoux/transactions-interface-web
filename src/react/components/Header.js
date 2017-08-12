@@ -22,12 +22,14 @@ const Header = ({ active,
   projectName
 }) => {
   return (<div className='header flex justify-start items-center'>
-    <div className='header__logo'>
-      <Logo />
-    </div>
-    <div className='header__title'>
-      { projectName }
-    </div>
+    <Link className='header__link flex justify-start items-center' href='/home'>
+      <div>
+        <Logo />
+      </div>
+      <div className='header__link__title'>
+        { projectName }
+      </div>
+    </Link>
     <div className='header__empty flex-auto' />
     {
       menuLinks.map(({ label, path }, index) => {
