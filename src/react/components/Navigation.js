@@ -6,13 +6,13 @@ const { closeNavigation } = require('transactions-interface-state').default
 
 import Button from './Button'
 import Link from './Link'
-import LogoutLink from './LogoutLink'
 
 const Navigation = ({ activePathname,
   closeNavigation,
   closeModal,
   email,
   isActive,
+  LogoutLinkComponent,
   visibleLinks,
   showModal
 }) => {
@@ -49,11 +49,11 @@ const Navigation = ({ activePathname,
           )
         })}
         {
-          email && (<div
+          email && LogoutLinkComponent && (<div
           className='navigation__list__item-container'
           key={visibleLinks.length + 1}
           >
-            <LogoutLink
+            <LogoutLinkComponent
               afterShowModal={closeNavigation}
               className='logout-link navigation__list__item__link'
             />
