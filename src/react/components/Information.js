@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { getNormalizerEntities,
   mergeNormalizerEntities
 } from 'transactions-redux-normalizer'
-const { closeInformation } = require('transactions-interface-state').default
+import { closeInformation } from 'transactions-interface-state'
 
 class Information extends Component {
   constructor () {

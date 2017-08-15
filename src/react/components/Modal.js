@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-const { closeModal } = require('transactions-interface-state').default
+import { closeModal } from 'transactions-interface-state'
 
 import IconButton from './IconButton'
 

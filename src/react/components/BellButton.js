@@ -2,9 +2,9 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-const { closeInformation,
+import { closeInformation,
   showInformation
-} = require('transactions-interface-state').default
+} from 'transactions-interface-state'
 import { getNormalizerEntities } from 'transactions-redux-normalizer'
 
 import Button from './Button'

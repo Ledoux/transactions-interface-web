@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-const { closeModal } = require('transactions-interface-state').default
-
+import { closeModal } from 'transactions-interface-state'
 import Button from './Button'
 import Icon from './Icon'
 
