@@ -1,0 +1,81 @@
+.carousel {
+  .slick-slide {
+    // so it's centered also before carousel is initiated
+    width: 100%;
+  }
+  &--with-dots .slick-slider {
+    margin-bottom: 30px;
+  }
+  .slick-dots {
+    bottom: -45px;
+    display: block;
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+  .slick-dots li {
+    display: inline-flex;
+    // this is the size of the click target
+    // the actual visual button is smaller
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+    position: relative;
+    cursor: pointer;
+    // transition: opacity 250ms ease-out;
+    // &:hover,
+    // &.slick-active {
+    //   opacity: 1;
+    // }
+    button {
+      background: none;
+      border: 0;
+      color: transparent;
+      cursor: pointer;
+      font-size: 0;
+      line-height: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      outline: none;
+      position: relative;
+      &::after {
+        background: $medium-grey;
+        border-radius: 16px;
+        content: '';
+        display: block;
+        // this is the size of the actual button
+        width: 14px;
+        height: 14px;
+      }
+    }
+    &.slick-active button {
+      cursor: default;
+      &::after {
+        background: $medium-blue;
+      }
+    }
+    &:hover:not(.slick-active) button::after {
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+    }
+  }
+  // fix SSR, broken in repo:
+  // https://github.com/akiran/react-slick/pull/256
+  .slick-slide {
+    display: none;
+    // slick has two copies of active slide in DOM, only show the first...
+    // which for some reason comes at index 2...
+    // quite fragile, but worst case scenario the whole carousel is hidden until initiated - which is OK.
+    &.slick-active:nth-of-type(2) {
+      display: block;
+    }
+  }
+  &--initialized .slick-slide {
+    display: block;
+  }
+}

@@ -11,20 +11,20 @@ import Button from './Button'
 import Icon from './Icon'
 
 const BellButton = ({ closeInformation,
+  isEmpty,
   isInformationActive,
   isNewNotification,
-  onTopOfDarkSection,
   showInformation
 }) => {
   const classes = classnames({
-    'bell-button--active': isInformationActive,
-    'bell-button--on-dark-bg': onTopOfDarkSection
+    'bell-button--inactivated': isEmpty
   }, 'bell-button')
   return (<Button
       className={classes}
+      disabled={isEmpty}
       onClick={e => {
         e.preventDefault()
-        if (!isInformationActive) {
+        if (!isInformationActive && !isEmpty) {
           showInformation()
         } else {
           // For keyboard users.
@@ -59,13 +59,13 @@ const mapStateToProps = state => {
     }
   } = state
   const notifications = getNormalizerEntities(state, 'notifications')
+  const isEmpty = notifications.length === 0
   const isNewNotification = notifications.find(({isSeen}) => !isSeen)
-  return {
+  return { isEmpty,
     isInformationActive: isActive,
     isNewNotification
   }
 }
-export default connect(mapStateToProps, {
-  closeInformation,
+export default connect(mapStateToProps, { closeInformation,
   showInformation
 })(BellButton)
