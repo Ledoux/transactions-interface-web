@@ -1,9 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const Loading = ({
-  isActive
-}) => {
+const Loading = ({ isActive }) => {
   return (<div className='loading'>
     {
       isActive && <div className='loading__container' />

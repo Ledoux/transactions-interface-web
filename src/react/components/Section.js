@@ -1,9 +1,8 @@
+import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import classnames from 'classnames'
 
-const Section = ({
-  beforeSection,
+const Section = ({ beforeSection,
   children,
   extraClass,
   first,
@@ -27,8 +26,7 @@ const Section = ({
   )
 }
 
-Section.propTypes = {
-  beforeSection: PropTypes.node,
+Section.propTypes = { beforeSection: PropTypes.node,
   children: PropTypes.node.isRequired,
   extraClass: PropTypes.string,
   first: PropTypes.bool,

@@ -56,7 +56,6 @@ const mapStateToProps = ({
     isNavigationActive: isActive
   }
 }
-export default connect(mapStateToProps, {
-  closeNavigation,
+export default connect(mapStateToProps, { closeNavigation,
   showNavigation
 })(HamburgerButton)

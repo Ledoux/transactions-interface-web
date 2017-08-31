@@ -3,15 +3,13 @@ import React, { Component } from 'react'
 
 const NAMESPACE = 'http://www.w3.org/1999/xlink'
 
-export default class Icon extends Component {
-
+class Icon extends Component {
   componentDidUpdate () {
     // this is needed for Safari, won't redraw the use element otherwise
     if (this._useElement) {
       this._useElement.setAttributeNS(NAMESPACE, 'href', '#' + this.props.icon)
     }
   }
-
   render () {
     return (
       <svg className={this.props.className || 'icon'}>
@@ -25,7 +23,8 @@ export default class Icon extends Component {
   }
 }
 
-Icon.propTypes = {
-  icon: PropTypes.string.isRequired,
+Icon.propTypes = { icon: PropTypes.string.isRequired,
   className: PropTypes.string
 }
+
+export default Icon

@@ -4,7 +4,7 @@ import React from 'react'
 import Button from './Button'
 import Icon from './Icon'
 
-const IconButton = (props) => {
+const IconButton = props => {
   const { className,
     id,
     icon,

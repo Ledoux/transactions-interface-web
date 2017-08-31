@@ -13,22 +13,20 @@ class Information extends Component {
     this.state = { hasRequestedOnce: false }
   }
   componentDidMount () {
-    const { dispatch,
-      requestTransactions,
+    const { requestTransactions,
       userId
     } = this.props
     const { hasRequestedOnce } = this.state
     if (userId && !hasRequestedOnce) {
       this.setState({ hasRequestedOnce: true })
-      dispatch(requestTransactions('GET', [{
+      requestTransactions('GET', [{
         collectionName: 'notifications',
         query: { userId },
-      }], { tag: 'notifications' }))
+      }], { tag: 'notifications' })
     }
   }
   componentDidUpdate (prevProps) {
-    const { dispatch,
-      isActive,
+    const { isActive,
       isMockUser,
       requestTransactions,
       notSeenNotifications,
@@ -44,22 +42,22 @@ class Information extends Component {
             isSeen: true
           }
         })
-        dispatch(mergeNormalizerEntities('notifications', entities))
+        mergeNormalizerEntities('notifications', entities)
       } else {
-        dispatch(requestTransactions('PUT', [{
+        requestTransactions('PUT', [{
           collectionName: 'notifications',
           query: {
             isSeen: false,
             userId
           },
           update: { isSeen: true }
-        }], { tag: 'notifications' }))
+        }], { tag: 'notifications' })
       }
     }
   }
   render () {
     const { activePathname,
-      dispatch,
+      closeInformation,
       isActive,
       notifications,
       showModal
@@ -67,7 +65,7 @@ class Information extends Component {
     const classes = classnames({
       'information--showing': isActive
     }, 'information')
-    return (<div className={classes} onClick={() => dispatch(closeInformation())}>
+    return (<div className={classes} onClick={() => closeInformation()}>
       <nav className='information__list'
         onClick={e => {
           e.nativeEvent.stopImmediatePropagation() // Prevent click bubbling and closing modal
@@ -135,6 +133,6 @@ const mapStateToProps = (state, { getFilteredElements }) => {
     userId: id
   }
 }
-export default connect(mapStateToProps, dispatch => {
-  return { dispatch }
+export default connect(mapStateToProps, { closeInformation,
+  mergeNormalizerEntities
 })(Information)

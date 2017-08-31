@@ -60,8 +60,7 @@ const Carousel = class Carousel extends Component {
   }
 }
 
-Carousel.propTypes = {
-  extraClass: PropTypes.string,
+Carousel.propTypes = { extraClass: PropTypes.string,
   slides: PropTypes.array.isRequired,
   slideRenderFn: PropTypes.func,
   sliderOptions: PropTypes.object

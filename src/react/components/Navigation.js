@@ -80,6 +80,4 @@ const mapStateToProps = ({
     visibleLinks: (links && links.filter(link => link.label)) || []
   }
 }
-export default connect(mapStateToProps, {
-  closeNavigation
-})(Navigation)
+export default connect(mapStateToProps, { closeNavigation })(Navigation)

@@ -1,8 +1,8 @@
+import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import classnames from 'classnames'
 
-const Logo = ({onTopOfDarkSection}) => {
+const Logo = ({ onTopOfDarkSection }) => {
   const classes = classnames({
     'logo--on-dark-bg': onTopOfDarkSection
   }, 'logo icon')

@@ -3,7 +3,7 @@ import React from 'react'
 
 import { Link as ReactRouterLink } from 'react-router-dom'
 
-const Link = (props) => {
+const Link = props => {
   const useAnchor = (props.target && props.target === '_blank') ||
     props.download ||
     props.external
@@ -15,7 +15,6 @@ const Link = (props) => {
   } else {
     return <LinkComponent {...linkProps} to={props.href} />
   }
-
 }
 
 export default Link

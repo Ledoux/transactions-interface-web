@@ -70,6 +70,4 @@ function mapStateToProps({
     isModalActive: isActive
   }
 }
-export default connect(mapStateToProps, {
-  closeModal
-})(Warning)
+export default connect(mapStateToProps, { closeModal })(Warning)
