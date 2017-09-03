@@ -11,11 +11,11 @@ const Title = ({ className,
     {
       icon && (<Icon
       className={classnames('icon title__icon', {
-        'col col-2': icon })}
+        'col col-1': icon })}
       icon={icon} />)
     }
     <p className={classnames('title__text', {
-      'col col-10 title__text--icon': icon})} >
+      'col col-11': icon})} >
       {text}
     </p>
   </div>)

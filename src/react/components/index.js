@@ -14,6 +14,7 @@ import Logo  from './Logo'
 import Modal from './Modal'
 import Navigation from './Navigation'
 import Section from './Section'
+import SwitchButton from './SwitchButton'
 import Title from './Title'
 import Uploader from './Uploader'
 import Warning from './Warning'
@@ -34,6 +35,7 @@ export { Avatar,
   Modal,
   Navigation,
   Section,
+  SwitchButton,
   Title,
   Uploader,
   Warning

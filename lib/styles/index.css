@@ -601,6 +601,22 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
 .link--plain {
   color: inherit; }
 
+.loading__container {
+  border: 8px solid #fcfcfc;
+  /* Light grey */
+  border-top: 8px solid #33aece;
+  /* Blue */
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  animation: spin 2s linear infinite; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
 .modal {
   display: none;
   z-index: 10000;
@@ -792,17 +808,17 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
 .title {
   color: #777777;
   font-size: 14px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   text-align: left;
-  overflow-y: hidden; }
+  overflow-y: hidden;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem; }
   .title__icon {
     fill: #777777; }
   .title__text {
     font-weight: 500;
     padding-bottom: 0.25rem;
     padding-top: 0.25rem; }
-    .title__text--icon {
-      padding-left: 1rem; }
 
 .uploader {
   border: 3px dashed black; }
