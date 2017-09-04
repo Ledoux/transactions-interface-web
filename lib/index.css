@@ -805,6 +805,73 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
       box-shadow: 0 8px 0 rgba(0, 0, 0, 0.25);
       min-width: 300px; }
 
+.switch-button {
+  border: 0px;
+  border-radius: 20px;
+  border-color: #f3f7bf;
+  color: #d3dc4e;
+  height: 40px;
+  width: 6rem;
+  min-width: 100px;
+  position: relative;
+  cursor: pointer; }
+  .switch-button div {
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    height: 100%;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    transition: all 0.5s;
+    width: 75%; }
+  .switch-button--off {
+    background-color: #ECEFF1; }
+    .switch-button--off div {
+      background-color: #455A64;
+      left: 0; }
+  .switch-button--on {
+    background-color: #f3f7bf; }
+    .switch-button--on div {
+      background-color: #d3dc4e;
+      left: 25%; }
+  .switch-button--meilleurs_sieges--on {
+    color: #fcfcfc;
+    background-color: #FFCCBC; }
+    .switch-button--meilleurs_sieges--on div {
+      background-color: #ff8000; }
+  .switch-button--meilleurs_sieges--off {
+    background-color: #eefa7f; }
+    .switch-button--meilleurs_sieges--off div {
+      background-color: #caee71; }
+  .switch-button--groupe_politique--on {
+    color: #fcfcfc;
+    background-color: #FFCCBC; }
+    .switch-button--groupe_politique--on div {
+      background-color: #ff8000; }
+  .switch-button--groupe_politique--off {
+    background-color: #eefa7f; }
+    .switch-button--groupe_politique--off div {
+      background-color: #caee71; }
+  .switch-button--commission--on {
+    color: #fcfcfc;
+    background-color: #89dc67; }
+    .switch-button--commission--on div {
+      background-color: #055400; }
+  .switch-button--commission--off {
+    background-color: #ee88d2; }
+    .switch-button--commission--off div {
+      background-color: #ce3b81; }
+  .switch-button--mandats_cumules--on {
+    color: #fcfcfc;
+    background-color: #8ddcdd; }
+    .switch-button--mandats_cumules--on div {
+      background-color: #5777a6; }
+  .switch-button--mandats_cumules--off {
+    background-color: #5777a6; }
+    .switch-button--mandats_cumules--off div {
+      background-color: #8ddcdd; }
+
 .title {
   color: #777777;
   font-size: 14px;
