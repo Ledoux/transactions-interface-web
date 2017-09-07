@@ -11,53 +11,56 @@ const Warning = ({ beforeCloseModal,
   isModalActive,
   text,
   nextLocation,
+  push,
   subtext
 }) => {
-  return (<div className='warning'>
-    <div className='warning__illustration'>
-      <Icon icon={icon || 'exclamation'} className='warning__illustration__icon' />
-    </div>
-    <div className='warning__text'>
-      {text}
-    </div>
-    <div className='warning__subtext'>
-      {subtext}
-    </div>
-    {
-      isModalActive && <div className='warning__modal'>
-        {
-          nextLocation
-          ? (<div className='warning__modal__decision'>
-            <Button
-              className={`button warning__modal__decision__button`}
-              onClick={closeModal}
-            >
-              No, cancel
-            </Button>
-            <Button
+  return (
+    <div className='warning'>
+      <div className='warning__illustration'>
+        <Icon icon={icon || 'exclamation'} className='warning__illustration__icon' />
+      </div>
+      <div className='warning__text'>
+        {text}
+      </div>
+      <div className='warning__subtext'>
+        {subtext}
+      </div>
+      {
+        isModalActive && <div className='warning__modal'>
+          {
+            nextLocation
+            ? (<div className='warning__modal__decision'>
+              <Button
+                className={`button warning__modal__decision__button`}
+                onClick={closeModal}
+              >
+                No, cancel
+              </Button>
+              <Button
+                className={`button warning__modal__decision__button`}
+                onClick={() => {
+                  beforeCloseModal && beforeCloseModal()
+                  closeModal()
+                  push(nextLocation)
+                }}
+              >
+                Yes, take me to the next page
+              </Button>
+            </div>)
+            : (<Button
               className={`button warning__modal__decision__button`}
               onClick={() => {
                 beforeCloseModal && beforeCloseModal()
                 closeModal()
-                push(nextLocation)
               }}
             >
-              Yes, take me to the next page
-            </Button>
-          </div>)
-          : (<Button
-            className={`button warning__modal__decision__button`}
-            onClick={() => {
-              beforeCloseModal && beforeCloseModal()
-              closeModal()
-            }}
-          >
-            Ok
-          </Button>)
-        }
-      </div>
-    }
-  </div>)
+              Ok
+            </Button>)
+          }
+        </div>
+      }
+    </div>
+  )
 }
 
 function mapStateToProps({ modal: { beforeCloseModal,
@@ -68,4 +71,6 @@ function mapStateToProps({ modal: { beforeCloseModal,
     isModalActive: isActive
   }
 }
-export default connect(mapStateToProps, { closeModal })(Warning)
+export default connect(mapStateToProps, { closeModal,
+  push
+})(Warning)
