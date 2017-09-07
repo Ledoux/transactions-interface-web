@@ -47,8 +47,7 @@ const Button = ({ children,
   )
 }
 
-Button.propTypes = {
-  children: PropTypes.any,
+Button.propTypes = { children: PropTypes.any,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   href: PropTypes.string,
@@ -57,8 +56,6 @@ Button.propTypes = {
   type: PropTypes.string
 }
 
-Button.defaultProps = {
-  onClick: noop
-}
+Button.defaultProps = { onClick: noop }
 
 export default Button

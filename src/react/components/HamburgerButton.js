@@ -47,14 +47,8 @@ HamburgerButton.propTypes = {
   showNavigation: PropTypes.func.isRequired
 }
 
-const mapStateToProps = ({
-  navigation: {
-    isActive
-  }
-}) => {
-  return {
-    isNavigationActive: isActive
-  }
+const mapStateToProps = ({ navigation: { isActive } }) => {
+  return { isNavigationActive: isActive }
 }
 export default connect(mapStateToProps, { closeNavigation,
   showNavigation

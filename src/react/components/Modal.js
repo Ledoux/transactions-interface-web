@@ -79,9 +79,7 @@ Modal.PropTypes = {
   content: PropTypes.node
 }
 
-const mapStateToProps = ({
-  modal: {
-    beforeCloseModal,
+const mapStateToProps = ({ modal: { beforeCloseModal,
     content,
     isActive,
     isCtaCloseButton,

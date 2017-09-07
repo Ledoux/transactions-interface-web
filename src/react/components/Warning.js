@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import { closeModal } from 'transactions-interface-state'
 import Button from './Button'
 import Icon from './Icon'
 
 const Warning = ({ beforeCloseModal,
   closeModal,
-  history,
   icon,
   isModalActive,
   text,
@@ -39,7 +39,7 @@ const Warning = ({ beforeCloseModal,
               onClick={() => {
                 beforeCloseModal && beforeCloseModal()
                 closeModal()
-                history.push(nextLocation)
+                push(nextLocation)
               }}
             >
               Yes, take me to the next page
@@ -60,9 +60,7 @@ const Warning = ({ beforeCloseModal,
   </div>)
 }
 
-function mapStateToProps({
-  modal: {
-    beforeCloseModal,
+function mapStateToProps({ modal: { beforeCloseModal,
     isActive
   }
 }) {

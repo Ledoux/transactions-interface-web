@@ -2,10 +2,11 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { closeInformation } from 'transactions-interface-state'
 import { getNormalizerEntities,
   mergeNormalizerEntities
 } from 'transactions-redux-normalizer'
-import { closeInformation } from 'transactions-interface-state'
+import { request } from 'transactions-redux-request'
 
 class Information extends Component {
   constructor () {
@@ -13,13 +14,13 @@ class Information extends Component {
     this.state = { hasRequestedOnce: false }
   }
   componentDidMount () {
-    const { requestTransactions,
+    const { request,
       userId
     } = this.props
     const { hasRequestedOnce } = this.state
     if (userId && !hasRequestedOnce) {
       this.setState({ hasRequestedOnce: true })
-      requestTransactions('GET', [{
+      request('GET', [{
         collectionName: 'notifications',
         query: { userId },
       }], { tag: 'notifications' })
@@ -28,7 +29,7 @@ class Information extends Component {
   componentDidUpdate (prevProps) {
     const { isActive,
       isMockUser,
-      requestTransactions,
+      request,
       notSeenNotifications,
       userId
     } = this.props
@@ -44,7 +45,7 @@ class Information extends Component {
         })
         mergeNormalizerEntities('notifications', entities)
       } else {
-        requestTransactions('PUT', [{
+        request('PUT', [{
           collectionName: 'notifications',
           query: {
             isSeen: false,
@@ -116,15 +117,15 @@ class Information extends Component {
   }
 }
 
-const mapStateToProps = (state, { getFilteredElements }) => {
-  const {
-    information: { isActive },
+const mapStateToProps = state => {
+  const { information: { isActive },
+    reselector: { reselect },
     user: { id,
       isMock
     }
   } = state
   const notifications = getNormalizerEntities(state, 'notifications')
-  const notSeenNotifications = getFilteredElements(state, 'WITH_NOT_IS_SEEN', 'notifications')
+  const notSeenNotifications = reselect(state, 'WITH_NOT_IS_SEEN', 'notifications')
   return {
     isActive,
     isMockUser: isMock,
@@ -134,5 +135,6 @@ const mapStateToProps = (state, { getFilteredElements }) => {
   }
 }
 export default connect(mapStateToProps, { closeInformation,
-  mergeNormalizerEntities
+  mergeNormalizerEntities,
+  request
 })(Information)

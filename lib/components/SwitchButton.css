@@ -7,8 +7,8 @@
   width: 5rem;
   min-width: 5rem;
   position: relative;
-  cursor: pointer;
-  div {
+  cursor: pointer; }
+  .switch-button div {
     border-radius: 20px;
     color: white;
     font-size: 14px;
@@ -16,20 +16,14 @@
     position: absolute;
     top: 0;
     transition: all 0.5s;
-    width: 75%;
-  }
-  &--off {
-    background-color: $medium-grey;
-    div {
-      background-color: $medium-blue;
-      left: 0;
-    }
-  }
-  &--on {
-    background-color: #f3f7bf;
-    div {
+    width: 75%; }
+  .switch-button--off {
+    background-color: #ECEFF1; }
+    .switch-button--off div {
+      background-color: #455A64;
+      left: 0; }
+  .switch-button--on {
+    background-color: #f3f7bf; }
+    .switch-button--on div {
       background-color: #d3dc4e;
-      left: 25%;
-    }
-  }
-}
+      left: 25%; }

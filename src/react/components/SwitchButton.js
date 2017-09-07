@@ -29,15 +29,14 @@ class SwitchButton extends Component {
       }, className)}
       onClick={handleSwitchButtonClick}
     >
-      <div>
+      <div className='flex items-center justify-center'>
         { isSwitchButtoned ? OnElement : OffElement}
       </div>
     </button>)
   }
 }
 
-SwitchButton.defaultProps = {
-  OffElement: <p> OFF </p>,
+SwitchButton.defaultProps = { OffElement: <p> OFF </p>,
   OnElement: <p> ON </p>
 }
 

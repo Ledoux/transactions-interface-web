@@ -45,16 +45,14 @@ const BellButton = ({ closeInformation,
     </Button>)
 }
 
-BellButton.propTypes = {
-  closeInformation: PropTypes.func.isRequired,
+BellButton.propTypes = { closeInformation: PropTypes.func.isRequired,
   isInformationActive: PropTypes.bool.isRequired,
   onTopOfDarkSection: PropTypes.bool,
   showInformation: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => {
-  const {
-    information: {
+  const { information: {
       isActive
     }
   } = state

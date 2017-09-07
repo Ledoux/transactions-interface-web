@@ -1,3 +1,4 @@
+import AppearMonitor from './AppearMonitor'
 import Avatar from './Avatar'
 import BellButton from './BellButton'
 import Button from './Button'
@@ -19,7 +20,8 @@ import Title from './Title'
 import Uploader from './Uploader'
 import Warning from './Warning'
 
-export { Avatar,
+export { AppearMonitor,
+  Avatar,
   BellButton,
   Button,
   Carousel,
@@ -34,6 +36,7 @@ export { Avatar,
   Logo,
   Modal,
   Navigation,
+
   Section,
   SwitchButton,
   Title,

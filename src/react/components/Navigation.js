@@ -25,29 +25,31 @@ const Navigation = ({ activePathname,
         e.nativeEvent.stopImmediatePropagation() // Prevent click bubbling and closing modal
         e.stopPropagation()
       }}>
-        {visibleLinks.map(({ external,
-          label,
-          target,
-          path
-          }, idx) => {
-          return (
-            <div
-              className='navigation__list__item'
-              key={idx}
-            >
-              <Link
-                className={classnames({
-                  'navigation__list__item__link--active': path === window.location.pathname,
-                }, 'block py2 navigation__list__item__link')}
-                external={external}
-                href={path}
-                target={target}
+        {
+          visibleLinks.map(({ external,
+            label,
+            target,
+            path
+            }, idx) => {
+            return (
+              <div
+                className='navigation__list__item'
+                key={idx}
               >
-                {label}
-              </Link>
-            </div>
-          )
-        })}
+                <Link
+                  className={classnames({
+                    'navigation__list__item__link--active': path === window.location.pathname,
+                  }, 'block py2 navigation__list__item__link')}
+                  external={external}
+                  href={path}
+                  target={target}
+                >
+                  {label}
+                </Link>
+              </div>
+            )
+          })
+        }
         {
           email && LogoutLinkComponent && (<div
           className='navigation__list__item-container'
@@ -64,18 +66,15 @@ const Navigation = ({ activePathname,
   )
 }
 
-Navigation.propTypes = {
-  closeNavigation: PropTypes.func.isRequired,
+Navigation.propTypes = { closeNavigation: PropTypes.func.isRequired,
   activePathname: PropTypes.string
 }
 
-const mapStateToProps = ({
-  authorization: { links },
+const mapStateToProps = ({ authorization: { links },
   navigation: { isActive },
   user: { email }
 }) => {
-  return {
-    email,
+  return { email,
     isActive,
     visibleLinks: (links && links.filter(link => link.label)) || []
   }
