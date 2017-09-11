@@ -1,16 +1,16 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
-import { closeModal } from 'transactions-interface-state'
+import { Warning as withState } from 'transactions-interface-state'
+
 import Button from './Button'
 import Icon from './Icon'
 
-const Warning = ({ beforeCloseModal,
-  closeModal,
+const Warning = ({ closeModal,
   icon,
   isModalActive,
-  text,
+  isYesOrNo,
   nextLocation,
+  onYesClick,
+  text,
   push,
   subtext
 }) => {
@@ -28,34 +28,31 @@ const Warning = ({ beforeCloseModal,
       {
         isModalActive && <div className='warning__modal'>
           {
-            nextLocation
-            ? (<div className='warning__modal__decision'>
+            isYesOrNo
+            ? (
+              <div className='warning__modal__decision'>
+                <Button
+                  className={`button warning__modal__decision__button`}
+                  onClick={closeModal}
+                >
+                  No, cancel
+                </Button>
+                <Button
+                  className={`button warning__modal__decision__button`}
+                  onClick={onYesClick}
+                >
+                  Yes, take me to the next page
+                </Button>
+              </div>
+            )
+            : (
               <Button
                 className={`button warning__modal__decision__button`}
-                onClick={closeModal}
+                onClick={onYesClick}
               >
-                No, cancel
+                Ok
               </Button>
-              <Button
-                className={`button warning__modal__decision__button`}
-                onClick={() => {
-                  beforeCloseModal && beforeCloseModal()
-                  closeModal()
-                  push(nextLocation)
-                }}
-              >
-                Yes, take me to the next page
-              </Button>
-            </div>)
-            : (<Button
-              className={`button warning__modal__decision__button`}
-              onClick={() => {
-                beforeCloseModal && beforeCloseModal()
-                closeModal()
-              }}
-            >
-              Ok
-            </Button>)
+            )
           }
         </div>
       }
@@ -63,14 +60,4 @@ const Warning = ({ beforeCloseModal,
   )
 }
 
-function mapStateToProps({ modal: { beforeCloseModal,
-    isActive
-  }
-}) {
-  return { beforeCloseModal,
-    isModalActive: isActive
-  }
-}
-export default connect(mapStateToProps, { closeModal,
-  push
-})(Warning)
+export default withState(Warning)

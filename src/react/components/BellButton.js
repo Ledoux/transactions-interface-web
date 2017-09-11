@@ -1,11 +1,6 @@
 import classnames from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
-import { connect } from 'react-redux'
-import { closeInformation,
-  showInformation
-} from 'transactions-interface-state'
-import { getNormalizerEntities } from 'transactions-redux-normalizer'
+import { BellButton as withState } from 'transactions-interface-state'
 
 import Button from './Button'
 import Icon from './Icon'
@@ -19,8 +14,8 @@ const BellButton = ({ closeInformation,
   const classes = classnames({
     'bell-button--inactivated': isEmpty
   }, 'bell-button')
-  return (<Button
-      className={classes}
+  return (
+    <Button className={classes}
       disabled={isEmpty}
       onClick={e => {
         e.preventDefault()
@@ -42,28 +37,8 @@ const BellButton = ({ closeInformation,
           <circle className='bell-button__alert__circle' />
         </svg>)
       }
-    </Button>)
+    </Button>
+  )
 }
 
-BellButton.propTypes = { closeInformation: PropTypes.func.isRequired,
-  isInformationActive: PropTypes.bool.isRequired,
-  onTopOfDarkSection: PropTypes.bool,
-  showInformation: PropTypes.func.isRequired
-}
-
-const mapStateToProps = state => {
-  const { information: {
-      isActive
-    }
-  } = state
-  const notifications = getNormalizerEntities(state, 'notifications')
-  const isEmpty = notifications.length === 0
-  const isNewNotification = notifications.find(({isSeen}) => !isSeen)
-  return { isEmpty,
-    isInformationActive: isActive,
-    isNewNotification
-  }
-}
-export default connect(mapStateToProps, { closeInformation,
-  showInformation
-})(BellButton)
+export default withState(BellButton)

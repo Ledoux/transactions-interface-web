@@ -22,17 +22,19 @@ class SwitchButton extends Component {
     const {
       isSwitchButtoned
     } = this.state
-    return (<button
-      className={classnames({
-        'switch-button--off': !isSwitchButtoned,
-        'switch-button--on': isSwitchButtoned
-      }, className)}
-      onClick={handleSwitchButtonClick}
-    >
-      <div className='flex items-center justify-center'>
-        { isSwitchButtoned ? OnElement : OffElement}
-      </div>
-    </button>)
+    return (
+      <button
+        className={classnames({
+          'switch-button--off': !isSwitchButtoned,
+          'switch-button--on': isSwitchButtoned
+        }, className)}
+        onClick={handleSwitchButtonClick}
+      >
+        <div className='flex items-center justify-center'>
+          { isSwitchButtoned ? OnElement : OffElement}
+        </div>
+      </button>
+    )
   }
 }
 

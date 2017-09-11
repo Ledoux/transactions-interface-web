@@ -409,6 +409,7 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
       font-weight: 500;
       text-decoration: none; }
       .header__navigation__item--active {
+        cursor: inherit;
         color: #33aece; }
     .header__navigation__alert {
       position: absolute;
@@ -732,11 +733,12 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
       .navigation__list__item__link {
         border-bottom: 1px solid #fcfcfc;
         color: #777777;
+        display: block;
         font-family: "Raleway", "Helvetica Neue", Arial, sans-serif;
         font-size: 14px;
         font-weight: 500;
+        margin-bottom: 0.25rem;
         text-decoration: none;
-        display: block;
         transition: transform 250ms ease-out; }
         .navigation__list__item__link:hover, .navigation__list__item__link:focus {
           transform: translateX(0.5em); }
@@ -746,6 +748,7 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
           border-top-left-radius: 0.25rem;
           border-top-right-radius: 0.25rem; }
         .navigation__list__item__link--active {
+          cursor: inherit;
           color: #33aece; }
 
 .section {

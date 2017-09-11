@@ -1,72 +1,18 @@
 import classnames from 'classnames'
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { closeInformation } from 'transactions-interface-state'
-import { getNormalizerEntities,
-  mergeNormalizerEntities
-} from 'transactions-redux-normalizer'
-import { request } from 'transactions-redux-request'
+import React from 'react'
+import { Information as withState } from 'transactions-interface-state'
 
-class Information extends Component {
-  constructor () {
-    super ()
-    this.state = { hasRequestedOnce: false }
-  }
-  componentDidMount () {
-    const { request,
-      userId
-    } = this.props
-    const { hasRequestedOnce } = this.state
-    if (userId && !hasRequestedOnce) {
-      this.setState({ hasRequestedOnce: true })
-      request('GET', [{
-        collectionName: 'notifications',
-        query: { userId },
-      }], { tag: 'notifications' })
-    }
-  }
-  componentDidUpdate (prevProps) {
-    const { isActive,
-      isMockUser,
-      request,
-      notSeenNotifications,
-      userId
-    } = this.props
-    // when we close the information menu
-    // we can set to seen the previous unseen notifications
-    if (prevProps.isActive && !isActive) {
-      if (isMockUser) {
-        const entities = notSeenNotifications.map(notSeenNotification => {
-          return {
-            id: notSeenNotification.id,
-            isSeen: true
-          }
-        })
-        mergeNormalizerEntities('notifications', entities)
-      } else {
-        request('PUT', [{
-          collectionName: 'notifications',
-          query: {
-            isSeen: false,
-            userId
-          },
-          update: { isSeen: true }
-        }], { tag: 'notifications' })
-      }
-    }
-  }
-  render () {
-    const { activePathname,
-      closeInformation,
-      isActive,
-      notifications,
-      showModal
-    } = this.props
-    const classes = classnames({
-      'information--showing': isActive
-    }, 'information')
-    return (<div className={classes} onClick={() => closeInformation()}>
+const Information = ({ activePathname,
+  closeInformation,
+  isActive,
+  notifications,
+  showModal
+}) => {
+  const classes = classnames({
+    'information--showing': isActive
+  }, 'information')
+  return (
+    <div className={classes} onClick={() => closeInformation()}>
       <nav className='information__list'
         onClick={e => {
           e.nativeEvent.stopImmediatePropagation() // Prevent click bubbling and closing modal
@@ -113,28 +59,8 @@ class Information extends Component {
               )
             })}
       </nav>
-    </div>)
-  }
+    </div>
+  )
 }
 
-const mapStateToProps = state => {
-  const { information: { isActive },
-    reselector: { reselect },
-    user: { id,
-      isMock
-    }
-  } = state
-  const notifications = getNormalizerEntities(state, 'notifications')
-  const notSeenNotifications = reselect(state, 'WITH_NOT_IS_SEEN', 'notifications')
-  return {
-    isActive,
-    isMockUser: isMock,
-    notifications,
-    notSeenNotifications,
-    userId: id
-  }
-}
-export default connect(mapStateToProps, { closeInformation,
-  mergeNormalizerEntities,
-  request
-})(Information)
+export default withState(Information)

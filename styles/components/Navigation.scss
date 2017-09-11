@@ -50,11 +50,12 @@
       &__link {
         border-bottom: 1px solid $light-grey;
         color: $middle-font-color;
+        display: block;
         font-family: $font-family;
         font-size: 14px;
         font-weight: 500;
+        margin-bottom: 0.25rem;
         text-decoration: none;
-        display: block;
         transition: transform 250ms ease-out;
         &:hover,
         &:focus {
@@ -68,6 +69,7 @@
           border-top-right-radius: $border-radius;
         }
         &--active {
+          cursor: inherit;
           color: $medium-blue;
         }
       }

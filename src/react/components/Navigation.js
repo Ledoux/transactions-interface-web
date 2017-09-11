@@ -1,20 +1,18 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import classnames from 'classnames'
-import { connect } from 'react-redux'
-import { closeNavigation } from 'transactions-interface-state'
+import { Navigation as withState } from 'transactions-interface-state'
 
 import Button from './Button'
 import Link from './Link'
 
-const Navigation = ({ activePathname,
-  closeNavigation,
+const Navigation = ({ closeNavigation,
   closeModal,
   email,
   isActive,
   LogoutLinkComponent,
-  visibleLinks,
-  showModal
+  pathname,
+  showModal,
+  visibleLinks
 }) => {
   const classes = classnames({
     'navigation--showing': isActive
@@ -31,23 +29,30 @@ const Navigation = ({ activePathname,
             target,
             path
             }, idx) => {
-            return (
-              <div
-                className='navigation__list__item'
-                key={idx}
-              >
-                <Link
-                  className={classnames({
-                    'navigation__list__item__link--active': path === window.location.pathname,
-                  }, 'block py2 navigation__list__item__link')}
-                  external={external}
-                  href={path}
-                  target={target}
+              return (
+                <div
+                  className='navigation__list__item'
+                  key={idx}
                 >
-                  {label}
-                </Link>
-              </div>
-            )
+                  {
+                    path === pathname
+                    ? (
+                      <div className='navigation__list__item__link navigation__list__item__link--active'>
+                        {label}
+                      </div>
+                    )
+                    : (
+                      <Link className='block py2 navigation__list__item__link'
+                        external={external}
+                        href={path}
+                        target={target}
+                      >
+                        {label}
+                      </Link>
+                    )
+                  }
+                </div>
+              )
           })
         }
         {
@@ -66,17 +71,4 @@ const Navigation = ({ activePathname,
   )
 }
 
-Navigation.propTypes = { closeNavigation: PropTypes.func.isRequired,
-  activePathname: PropTypes.string
-}
-
-const mapStateToProps = ({ authorization: { links },
-  navigation: { isActive },
-  user: { email }
-}) => {
-  return { email,
-    isActive,
-    visibleLinks: (links && links.filter(link => link.label)) || []
-  }
-}
-export default connect(mapStateToProps, { closeNavigation })(Navigation)
+export default withState(Navigation)

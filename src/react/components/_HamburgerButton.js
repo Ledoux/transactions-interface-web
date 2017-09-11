@@ -1,6 +1,10 @@
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
-import { HamburgerButton as withState } from 'transactions-interface-state'
+import { connect } from 'react-redux'
+import { closeNavigation,
+  showNavigation
+} from 'transactions-interface-state'
 
 import Link from './Link'
 
@@ -36,4 +40,16 @@ const HamburgerButton = ({ isNavigationActive,
   )
 }
 
-export default withState(HamburgerButton)
+HamburgerButton.propTypes = {
+  closeNavigation: PropTypes.func.isRequired,
+  isNavigationActive: PropTypes.bool.isRequired,
+  onTopOfDarkSection: PropTypes.bool,
+  showNavigation: PropTypes.func.isRequired
+}
+
+const mapStateToProps = ({ navigation: { isActive } }) => {
+  return { isNavigationActive: isActive }
+}
+export default connect(mapStateToProps, { closeNavigation,
+  showNavigation
+})(HamburgerButton)

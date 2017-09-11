@@ -40,13 +40,15 @@ class Uploader extends Component {
     const { children,
       className
     } = this.props
-    return (<Dropzone
-      className={className || 'uploader'}
-      multiple={false}
-      accept="image/*"
-      onDrop={handleDropUpload}>
-      { children || <p>Drop an image or click to select a file to upload.</p> }
-    </Dropzone>)
+    return (
+      <Dropzone
+        className={className || 'uploader'}
+        multiple={false}
+        accept="image/*"
+        onDrop={handleDropUpload}>
+        { children || <p>Drop an image or click to select a file to upload.</p> }
+      </Dropzone>
+    )
   }
 }
 
