@@ -1,6 +1,7 @@
 import classnames from 'classnames'
 import React from 'react'
 import { Header as withState } from 'transactions-interface-state'
+import { LogoutLink } from 'transactions-user-web'
 
 import Avatar from './Avatar'
 import BellButton from './BellButton'
@@ -111,6 +112,10 @@ const Header = ({ active,
       </div>
     </div>
   )
+}
+
+Header.defaultProps = {
+  LogoutLinkComponent: LogoutLink
 }
 
 export default withState(Header)

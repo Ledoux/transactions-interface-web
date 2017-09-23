@@ -19,6 +19,7 @@
     "transactions-interface-state": "latest",
     "transactions-redux-normalizer": "latest",
     "transactions-redux-reselector": "latest",
+    "transactions-user-web": "latest",
     "prop-types": "^15.5.4",
     "react": "^15.5.4",
     "react-debounce-input": "^3.0.0",
@@ -54,5 +55,5 @@
     "dev-watch-js": "nodemon --watch src --exec \"npm run compile\"",
     "dev-watch": "concurrently \"npm run dev-watch-js\" \"npm run dev-watch-sass\""
   },
-  "version": "0.0.14"
+  "version": "0.0.15"
 }
