@@ -97,9 +97,9 @@ const Header = ({ active,
         )
       }
       <div className='header__avatar'>
-        <Avatar
-          className='avatar header__avatar__img'
+        <Avatar className='avatar header__avatar__img'
           id={id}
+          imageUrl={imageUrl}
         />
       </div>
       {
