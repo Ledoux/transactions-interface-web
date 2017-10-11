@@ -99,6 +99,21 @@ img {
 .slick-arrow.slick-hidden {
   display: none; }
 
+.arrow-button {
+  background-color: transparent;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-bottom-width: 4px;
+  border-top-width: 4px;
+  border-left: 8px solid black;
+  margin: 0.2rem;
+  outline: none;
+  transition: all 0.4s ease-out; }
+  .arrow-button--expanded {
+    transform: rotate(90deg);
+    transition: all 0.4s ease-out; }
+
 .avatar {
   border-radius: 50%; }
 
@@ -751,6 +766,16 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
           cursor: inherit;
           color: #33aece; }
 
+.node {
+  overflow-y: hidden; }
+  .node__key {
+    font-weight: bold;
+    margin-right: 0.25rem; }
+    .node__key__name {
+      padding: 0.25rem; }
+    .node__key--string {
+      margin-bottom: 0.15rem; }
+
 .section {
   position: relative;
   padding-top: 3.5rem;
@@ -852,6 +877,12 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
     font-weight: 500;
     padding-bottom: 0.25rem;
     padding-top: 0.25rem; }
+
+.tree {
+  font-size: 10px;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  padding-top: 0.5rem; }
 
 .uploader {
   border: 3px dashed black; }

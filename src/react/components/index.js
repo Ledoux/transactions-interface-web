@@ -4,6 +4,7 @@ import BellButton from './BellButton'
 import Button from './Button'
 import Carousel from './Carousel'
 import Confirmation from './Confirmation'
+import Fetcher from './Fetcher'
 import HamburgerButton from './HamburgerButton'
 import Header from './Header'
 import Icon from './Icon'
@@ -17,6 +18,7 @@ import Navigation from './Navigation'
 import Section from './Section'
 import SwitchButton from './SwitchButton'
 import Title from './Title'
+import Tree from './Tree'
 import Uploader from './Uploader'
 import Warning from './Warning'
 
@@ -26,6 +28,7 @@ export { AppearMonitor,
   Button,
   Carousel,
   Confirmation,
+  Fetcher,
   HamburgerButton,
   Header,
   Icon,
@@ -36,7 +39,7 @@ export { AppearMonitor,
   Logo,
   Modal,
   Navigation,
-
+  Tree,
   Section,
   SwitchButton,
   Title,

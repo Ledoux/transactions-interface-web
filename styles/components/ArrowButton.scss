@@ -1,0 +1,17 @@
+// https://codepen.io/yukulele/pen/KLnhJ
+.arrow-button {
+  background-color: transparent;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-bottom-width: 4px;
+  border-top-width: 4px;
+  border-left: 8px solid black;
+  margin: 0.2rem;
+  outline: none;
+  transition: $transition;
+  &--expanded {
+    transform: rotate(90deg);
+    transition: $transition;
+  }
+}

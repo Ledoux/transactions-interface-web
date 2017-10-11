@@ -1,0 +1,13 @@
+.node {
+  overflow-y: hidden;
+  &__key {
+    font-weight: bold;
+    margin-right: 0.25rem;
+    &__name {
+      padding: 0.25rem;
+    }
+    &--string {
+      margin-bottom: 0.15rem;
+    }
+  }
+}
