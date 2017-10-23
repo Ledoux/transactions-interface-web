@@ -4,13 +4,10 @@ import { EntitiesList as withState } from 'transactions-interface-state'
 import Tree from './Tree'
 
 const EntitiesList = ({ collection,
-  entities,
-  warning
+  entities
 }) => {
   return (
     <div>
-      { warning }
-      -- see your entities! --
       {
         /*
         entities.map((document, index) => {

@@ -21,14 +21,13 @@
     "transactions-redux-reselector": "latest",
     "transactions-user-web": "latest",
     "prop-types": "^15.5.4",
-    "react": "^15.5.4",
+    "react": "^16.0.0",
     "react-debounce-input": "^3.0.0",
-    "react-dom": "^15.5.4",
     "react-dropzone": "^3.13.1",
     "react-inview-monitor": "^1.1.1",
     "react-redux": "^5.0.5",
     "react-router-redux": "next",
-    "react-slick": "^0.14.11",
+    "react-slick": "^0.15.4",
     "redux": "^3.6.0"
   },
   "description": "In the framework of transactions, this is a frontend plugin that gives you very smart uis",
@@ -55,5 +54,5 @@
     "dev-watch-js": "nodemon --watch src --exec \"npm run compile\"",
     "dev-watch": "concurrently \"npm run dev-watch-js\" \"npm run dev-watch-sass\""
   },
-  "version": "0.0.16"
+  "version": "0.0.17"
 }

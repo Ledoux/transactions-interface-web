@@ -15,33 +15,36 @@ const Fetcher = ({ collectionNames,
   selectedCollectionName
 }) => {
   return (
-    <div>
-      <div>
-        -- select a collection --
-      </div>
-      <select defaultValue={selectedCollectionName || ''}
-        onChange={onCollectionNameChange} >
-        <option key={collectionNames.length} disabled>
-
-        </option>
-        {
-          collectionNames.map((collectionName, index) => (
-            <option key={index} value={collectionName}>
-              {collectionName}
-            </option>
-          ))
-        }
-      </select>
-      <div>
+    <div className='fetcher center'>
+      <div className='col'>
         <div>
-          -- write a query --
+          -- select a collection --
         </div>
-        <textarea style={{ resize: 'none' }} onChange={onQueryStringChange}
-          rows={queryString.split('\n').length + 1}
-          value={queryString} />
+        <select className='mb2' defaultValue={selectedCollectionName || ''}
+          onChange={onCollectionNameChange} >
+          <option key={collectionNames.length} disabled>
+          </option>
+          {
+            collectionNames.map((collectionName, index) => (
+              <option key={index} value={collectionName}>
+                {collectionName}
+              </option>
+            ))
+          }
+        </select>
+        <div>
+          <div>
+            -- write a query --
+          </div>
+          <textarea style={{ resize: 'none' }} onChange={onQueryStringChange}
+            rows={queryString.split('\n').length + 1}
+            value={queryString} />
+        </div>
       </div>
-      { selectedCollectionName && <EntitiesList collectionName={selectedCollectionName}
-        queryString={queryString} /> }
+      <div className='col'>
+        { selectedCollectionName && <EntitiesList collectionName={selectedCollectionName}
+          queryString={queryString} /> }
+      </div>
     </div>
   )
 }

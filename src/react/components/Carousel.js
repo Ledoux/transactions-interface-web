@@ -18,7 +18,7 @@ const sliderConfig = {
 
 // NOTE: Slider needs an extra wrapper div inside which we cannot attach layout to,
 // because it conflicts with slick's layout classes (float etc)
-const Carousel = class Carousel extends Component {
+class Carousel extends Component {
   constructor () {
     super()
     this.state = {
@@ -49,11 +49,13 @@ const Carousel = class Carousel extends Component {
     return (
       <div className={classes}>
         <Slider {...options}>
-          {slides.map((slide, index) => (
-            <div key={index}>
-              {slideRenderFn(slide)}
-            </div>
-          ))}
+          {
+            slides.map((slide, index) => (
+              <div key={index}>
+                { slideRenderFn(slide) }
+              </div>
+            ))
+          }
         </Slider>
       </div>
     )
