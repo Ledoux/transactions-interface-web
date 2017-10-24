@@ -1,0 +1,51 @@
+.two-columns-section {
+  &:last-of-type {
+    height: inherit;
+    overflow-y: hidden;
+    @media(min-width: $md) {
+      height: calc(100vh - #{$header-height});
+    }
+  }
+  &__content {
+    @media(min-width: $md) {
+      height: 100%;
+      padding-left: 4rem;
+    }
+    &__container {
+      &__title {
+        min-height: 7rem;
+        @media(min-width: $mini) {
+          min-height: 5rem;
+        }
+        @media(min-width: $md) {
+          margin-bottom: 1rem;
+          min-height: auto;
+          //min-height: 7rem;
+          text-align: left;
+        }
+      }
+      &__button {
+        margin-top: 1rem;
+        @media(min-width: $md) {
+          margin-top: 2rem;
+          text-align: left;
+        }
+      }
+    }
+  }
+  &__illustration {
+    @media (min-width: $md) {
+      height: 100%;
+    }
+    &__image {
+      @media (min-width: $sm) {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 50%;
+      }
+      @media (min-width: $md) {
+        max-width: 100%;
+      }
+    }
+  }
+}

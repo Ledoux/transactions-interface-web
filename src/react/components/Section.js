@@ -5,20 +5,19 @@ import React from 'react'
 const Section = ({ beforeSection,
   children,
   extraClass,
-  first,
-  quilt
+  isFullHeight
 }) => {
-  const classes = classnames({
-    'section--first': first,
-    'section--quilt': quilt
-  }, 'section', extraClass)
   return (
-    <section className={classes}>
-      <div className='page-section__inner'>
-        {beforeSection &&
-          <div className='page-section__between-sections'>
-            {beforeSection}
-          </div>
+    <section className={classnames('section', {
+        'section--full-height': isFullHeight
+      }, extraClass)}>
+      <div className='section__inner'>
+        {
+          beforeSection && (
+            <div className='section__inner__between-sections'>
+              {beforeSection}
+            </div>
+          )
         }
         {children}
       </div>
@@ -28,9 +27,7 @@ const Section = ({ beforeSection,
 
 Section.propTypes = { beforeSection: PropTypes.node,
   children: PropTypes.node.isRequired,
-  extraClass: PropTypes.string,
-  first: PropTypes.bool,
-  quilt: PropTypes.bool
+  extraClass: PropTypes.string
 }
 
 export default Section

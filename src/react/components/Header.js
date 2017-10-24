@@ -26,10 +26,8 @@ const Header = ({ active,
   const { visibleLinks } = state
   return (
     <div className='header flex justify-start items-center'>
-      <Navigation
-        LogoutLinkComponent={LogoutLinkComponent}
-        visibleLinks={visibleLinks}
-      />
+      <Navigation LogoutLinkComponent={LogoutLinkComponent}
+        visibleLinks={visibleLinks} />
       <Link className='header__link flex justify-start items-center' href='/home'>
         <div>
           <Logo />
@@ -52,8 +50,7 @@ const Header = ({ active,
                 )
                 : (
                   <Link className='header__navigation__item'
-                    href={path}
-                  >
+                    href={path}>
                     {label}
                   </Link>
                 )
@@ -63,8 +60,7 @@ const Header = ({ active,
         })
       }
       <div className={classnames('header__navigation', {
-        'header__navigation--no-border': !firstName
-      })}>
+        'header__navigation--no-border': !firstName })}>
         {
           !firstName && !isSigninPage && (
             <Button
@@ -96,12 +92,16 @@ const Header = ({ active,
           </div>
         )
       }
-      <div className='header__avatar'>
-        <Avatar className='avatar header__avatar__img'
-          id={id}
-          imageUrl={imageUrl}
-        />
-      </div>
+      {
+        firstName && (
+          <div className='header__avatar'>
+            <Avatar className='avatar header__avatar__img'
+              id={id}
+              imageUrl={imageUrl}
+            />
+          </div>
+        )
+      }
       {
         id && (<div className='header__bell'>
           <BellButton />
