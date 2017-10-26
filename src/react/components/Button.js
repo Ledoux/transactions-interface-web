@@ -20,28 +20,26 @@ const Button = ({ children,
 }) => {
   const classes = className || 'button'
   if (href) {
-    return (<Link
-      className={classes}
-      id={id}
-      download={download}
-      href={href}
-      target={target}
-      onClick={onClick}
-      >
-      {children}
-    </Link>)
+    return (
+      <Link className={classes}
+        id={id}
+        download={download}
+        href={href}
+        target={target}
+        onClick={onClick} >
+        {children}
+      </Link>
+    )
   }
   return (
-    <button
-      className={classes}
+    <button className={classes}
       disabled={disabled}
       download={download}
       id={id}
       onClick={onClick}
       onMouseDown={onMouseDown}
       onMouseOver={onMouseOver}
-      type={type}
-    >
+      type={type} >
       {children}
     </button>
   )

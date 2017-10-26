@@ -1,3 +1,10 @@
+/*
+$mini: 425px !default;
+$sm: 40em !default; //648px
+$md: 52em !default;
+$lg: 1440px !default;
+$xl: 75em !default;
+*/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -132,7 +139,7 @@ img {
   .bell-button__icon {
     height: 1rem;
     width: 1rem; }
-    @media (min-width: 52em) {
+    @media (min-width: 1024px) {
       .bell-button__icon {
         height: 1.5rem;
         width: 1.5rem; } }
@@ -142,7 +149,7 @@ img {
     right: 0.1rem;
     height: 0.5rem;
     width: 0.5rem; }
-    @media (min-width: 52em) {
+    @media (min-width: 1024px) {
       .bell-button__alert {
         height: 1rem;
         width: 1rem;
@@ -152,7 +159,7 @@ img {
       cx: 0.35rem;
       cy: 0.35rem;
       r: 0.15rem; }
-      @media (min-width: 52em) {
+      @media (min-width: 1024px) {
         .bell-button__alert__circle {
           cx: 0.5rem;
           cy: 0.5rem;
@@ -172,35 +179,32 @@ img {
   padding: 0.5em 1em;
   text-decoration: none;
   text-align: center; }
-  .button--cta {
-    padding: 0.75rem;
-    font-weight: bold;
-    font-size: 18px; }
   .button--plain {
     background-color: white;
     border: 3px solid black;
     border-radius: 0.25rem;
     color: black;
     padding: 0.5rem; }
-    @media (min-width: 64em) {
+    @media (min-width: 1440px) {
       .button--plain {
         padding: 0.875em 1.375em; } }
     .button--plain .icon {
       fill: black;
       height: 1.5rem;
       width: 1.5rem; }
-      @media (min-width: 64em) {
+      @media (min-width: 1440px) {
         .button--plain .icon {
           height: 3rem;
           width: 3rem; } }
   .button--border {
     border: 1px solid #777777;
+    border-color: #33aece;
     border-radius: 0.25rem; }
   .button--inverse {
-    background-color: white;
-    color: #33aece; }
+    background-color: white !important;
+    color: #33aece !important; }
     .button--inverse svg {
-      fill: #33aece; }
+      fill: #33aece !important; }
   .button--small {
     font-size: 10px; }
   .button--shadow {
@@ -299,6 +303,22 @@ img {
     font-weight: 500;
     margin-bottom: 3rem; }
 
+.emblem-link {
+  color: #4a4a4a;
+  text-decoration: none; }
+  .emblem-link__logo {
+    margin-right: 0.5rem; }
+  .emblem-link__title {
+    font-size: 12px;
+    font-weight: 500;
+    padding-left: 0.25rem;
+    width: 1rem; }
+    @media (min-width: 1024px) {
+      .emblem-link__title {
+        font-size: 24px;
+        padding-right: 0.25rem;
+        width: auto; } }
+
 /*
  * Hamburgers
  * @description Tasty CSS-animated hamburgers
@@ -396,19 +416,6 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
   position: fixed;
   width: 100%;
   z-index: 1000; }
-  .header__link {
-    color: #777777;
-    text-decoration: none; }
-    .header__link__title {
-      font-size: 12px;
-      font-weight: 500;
-      padding-left: 0.25rem;
-      width: 1rem; }
-      @media (min-width: 52em) {
-        .header__link__title {
-          font-size: 24px;
-          padding-right: 0.25rem;
-          width: auto; } }
   .header__navigation {
     border-right: 2px solid #777777;
     padding-left: 0.25rem;
@@ -416,6 +423,9 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
     position: relative; }
     .header__navigation--no-border {
       border-right: 0; }
+    @media (max-width: 768px) {
+      .header__navigation {
+        display: none; } }
     .header__navigation__item {
       color: #777777;
       cursor: pointer;
@@ -440,17 +450,6 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
     .header__navigation--name {
       border-right: 0;
       margin-right: 0; }
-    @media (max-width: 52em) {
-      .header__navigation {
-        display: none; } }
-  .header__sign-cta {
-    position: absolute;
-    right: 4.5rem; }
-    @media (min-width: 64em) {
-      .header__sign-cta {
-        padding-top: 0;
-        position: initial;
-        margin-right: 2rem; } }
   .header__name {
     font-size: 18px;
     font-weight: 500;
@@ -460,7 +459,7 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
     height: 2.5rem;
     margin-right: 0.25rem;
     width: 2.5rem; }
-    @media (min-width: 52em) {
+    @media (min-width: 1024px) {
       .header__avatar {
         height: 3.5rem;
         margin-right: 1rem;
@@ -468,13 +467,13 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
     .header__avatar__img {
       height: 2.5rem;
       width: 2.5rem; }
-      @media (min-width: 52em) {
+      @media (min-width: 1024px) {
         .header__avatar__img {
           height: 3.5rem;
           width: 3.5rem; } }
   .header__bell {
     margin-right: 0.25rem; }
-    @media (min-width: 52em) {
+    @media (min-width: 1024px) {
       .header__bell {
         margin-right: 0; } }
   .header__hamburger {
@@ -491,10 +490,10 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
     vertical-align: middle;
     width: 3rem;
     transition: all 0.4s ease-out; }
-    @media (min-width: 52em) {
+    @media (min-width: 1024px) {
       .header__hamburger {
         margin-right: 1rem; } }
-    @media (min-width: 52em) {
+    @media (min-width: 1024px) {
       .header__hamburger {
         display: none; } }
     .header__hamburger:hover, .header__hamburger:focus {
@@ -572,14 +571,14 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
       right: 4.5rem;
       border: 11px solid transparent;
       border-bottom-color: #c5c5c5; }
-      @media (min-width: 52em) {
+      @media (min-width: 1024px) {
         .information__list::before {
           right: 1.25rem; } }
     .information__list::after {
       right: 4.65rem;
       border: 10px solid transparent;
       border-bottom-color: white; }
-      @media (min-width: 52em) {
+      @media (min-width: 1024px) {
         .information__list::after {
           right: 1.4rem; } }
     .information__list__item {
@@ -633,6 +632,10 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
   100% {
     transform: rotate(360deg); } }
 
+.logo {
+  height: 3rem;
+  width: 3rem; }
+
 .modal {
   display: none;
   z-index: 10000;
@@ -647,7 +650,7 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
   background-color: rgba(236, 236, 236, 0.86);
   will-change: opacity;
   opacity: 0; }
-  @media (min-width: 64em) {
+  @media (min-width: 1440px) {
     .modal {
       z-index: 1003; } }
   .modal__close {
@@ -664,7 +667,7 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
     right: 20px;
     z-index: 1;
     width: 2.5rem; }
-    @media (min-width: 64em) {
+    @media (min-width: 1440px) {
       .modal__close {
         top: 15px;
         right: 20px; } }
@@ -681,7 +684,7 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
     width: 750px;
     will-change: transform, opacity;
     backface-visibility: hidden; }
-    @media (min-width: 64em) {
+    @media (min-width: 1440px) {
       .modal__dialog {
         overflow-y: visible; } }
   .modal__dialog, .modal__content {
@@ -700,7 +703,7 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
     animation: fade-in 0.5s backwards; }
     .modal--active .modal__dialog {
       animation: flip-card-in 0.5s cubic-bezier(0.25, 0.15, 0.3, 1.1) backwards; }
-  @media (min-width: 64em) {
+  @media (min-width: 1440px) {
     .modal__dialog {
       padding: 10px; } }
 
@@ -782,15 +785,15 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
   padding-right: 2rem;
   padding-bottom: 3.5rem;
   z-index: 1; }
-  @media (min-width: 52em) {
+  @media (min-width: 1024px) {
     .section {
       padding-top: 3.5rem; } }
-  @media (min-width: 64em) {
+  @media (min-width: 1440px) {
     .section {
       padding-bottom: 5rem; } }
   .section--full-height {
     height: calc(100vh - 5rem); }
-  @media (min-width: 40em) {
+  @media (min-width: 768px) {
     .section__inner {
       height: 100%; } }
   .section__inner__between-sections {
@@ -838,14 +841,19 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
 
 .title {
   color: #777777;
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 1rem;
   text-align: left;
   overflow-y: hidden;
   padding-left: 0.5rem;
   padding-right: 0.5rem; }
+  @media (min-width: 1024px) {
+    .title {
+      font-size: 14px; } }
   .title__icon {
-    fill: #777777; }
+    fill: #777777;
+    margin-left: 0;
+    margin-right: 0.5rem; }
   .title__text {
     font-weight: 500;
     padding-bottom: 0.25rem;
@@ -887,43 +895,72 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
 .two-columns-section:last-of-type {
   height: inherit;
   overflow-y: hidden; }
-  @media (min-width: 52em) {
+  @media (min-width: 1024px) {
     .two-columns-section:last-of-type {
       height: calc(100vh - 5rem); } }
 
-@media (min-width: 52em) {
-  .two-columns-section__content {
-    height: 100%;
-    padding-left: 4rem; } }
-
-.two-columns-section__content__container__title {
-  min-height: 7rem; }
-  @media (min-width: 30em) {
-    .two-columns-section__content__container__title {
-      min-height: 5rem; } }
-  @media (min-width: 52em) {
-    .two-columns-section__content__container__title {
+.two-columns-section__content {
+  margin-bottom: 1rem;
+  padding: 1rem; }
+  @media (min-width: 425px) {
+    .two-columns-section__content {
+      margin-bottom: 2rem;
+      padding-left: 3rem;
+      padding-right: 3rem; } }
+  @media (min-width: 768px) {
+    .two-columns-section__content {
       margin-bottom: 1rem;
-      min-height: auto;
-      text-align: left; } }
+      padding-left: 4rem;
+      padding-right: 4rem; } }
+  @media (min-width: 1024px) {
+    .two-columns-section__content {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      height: 100%; } }
+  @media (min-width: 1024px) {
+    .two-columns-section__content__container {
+      padding-left: 3rem; } }
+  .two-columns-section__content__container__title {
+    min-height: 7rem; }
+    @media (min-width: 425px) {
+      .two-columns-section__content__container__title {
+        min-height: 5rem; } }
+    @media (min-width: 1024px) {
+      .two-columns-section__content__container__title {
+        margin-bottom: 1rem;
+        min-height: auto;
+        text-align: left; } }
+  .two-columns-section__content__container__button {
+    margin-top: 1rem; }
+    @media (min-width: 1024px) {
+      .two-columns-section__content__container__button {
+        margin-top: 2rem;
+        text-align: left; } }
 
-.two-columns-section__content__container__button {
-  margin-top: 1rem; }
-  @media (min-width: 52em) {
-    .two-columns-section__content__container__button {
-      margin-top: 2rem;
-      text-align: left; } }
-
-@media (min-width: 52em) {
-  .two-columns-section__illustration {
-    height: 100%; } }
-
-@media (min-width: 40em) {
-  .two-columns-section__illustration__image {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 50%; } }
-
-@media (min-width: 52em) {
-  .two-columns-section__illustration__image {
-    max-width: 100%; } }
+.two-columns-section__illustration {
+  height: 10rem;
+  width: auto; }
+  @media (min-width: 768px) {
+    .two-columns-section__illustration {
+      height: 12.5rem; } }
+  @media (min-width: 1024px) {
+    .two-columns-section__illustration {
+      height: 100%; } }
+  @media (min-width: 768px) {
+    .two-columns-section__illustration__image {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 50%; } }
+  @media (min-width: 1024px) {
+    .two-columns-section__illustration__image {
+      max-width: 100%; } }
+  .two-columns-section__illustration__icon {
+    height: 100%;
+    width: 100%; }
+    @media (min-width: 1024px) {
+      .two-columns-section__illustration__icon {
+        max-width: 100%; } }
+    @media (min-width: 1024px) {
+      .two-columns-section__illustration__icon {
+        height: 75%;
+        width: 75%; } }

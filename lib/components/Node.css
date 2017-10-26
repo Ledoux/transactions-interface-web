@@ -1,9 +1,0 @@
-.node {
-  overflow-y: hidden; }
-  .node__key {
-    font-weight: bold;
-    margin-right: 0.25rem; }
-    .node__key__name {
-      padding: 0.25rem; }
-    .node__key--string {
-      margin-bottom: 0.15rem; }

@@ -1,0 +1,18 @@
+.emblem-link {
+  color: $dark-font-color;
+  text-decoration: none;
+  &__logo {
+    margin-right: 0.5rem;
+  }
+  &__title {
+    font-size: 12px;
+    font-weight: 500;
+    padding-left: 0.25rem;
+    width: 1rem;
+    @media (min-width: $md) {
+      font-size: 24px;
+      padding-right: 0.25rem;
+      width: auto;
+    }
+  }
+}

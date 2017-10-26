@@ -57,7 +57,7 @@
     &.slick-active button {
       cursor: default;
       &::after {
-        background: $medium-blue;
+        background: $identity-color;
       }
     }
     &:hover:not(.slick-active) button::after {

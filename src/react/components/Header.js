@@ -6,10 +6,10 @@ import { LogoutLink } from 'transactions-user-web'
 import Avatar from './Avatar'
 import BellButton from './BellButton'
 import Button from './Button'
+import EmblemLink from './EmblemLink'
 import Icon from './Icon'
 import HamburgerButton from './HamburgerButton'
 import Link from './Link'
-import Logo from './Logo'
 import Navigation from './Navigation'
 
 const Header = ({ active,
@@ -20,7 +20,6 @@ const Header = ({ active,
   LogoutLinkComponent,
   menuLinks,
   pathname,
-  siteName,
   state
 }) => {
   const { visibleLinks } = state
@@ -28,14 +27,7 @@ const Header = ({ active,
     <div className='header flex justify-start items-center'>
       <Navigation LogoutLinkComponent={LogoutLinkComponent}
         visibleLinks={visibleLinks} />
-      <Link className='header__link flex justify-start items-center' href='/home'>
-        <div>
-          <Logo />
-        </div>
-        <div className='header__link__title'>
-          { siteName }
-        </div>
-      </Link>
+      <EmblemLink />
       <div className='header__empty flex-auto' />
       {
         visibleLinks && visibleLinks.map(({ label, path }, index) => {
@@ -59,28 +51,22 @@ const Header = ({ active,
           )
         })
       }
-      <div className={classnames('header__navigation', {
-        'header__navigation--no-border': !firstName })}>
-        {
-          !firstName && !isSigninPage && (
-            <Button
-              className={`button button--alive button--cta`}
-              href='/signin'>
-                Sign In
-            </Button>
-          )
-        }
-      </div>
+      {
+        !firstName && !isSigninPage && (
+          <Button className='button button--alive button--inverse button--border'
+            href='/signin'>
+              Sign In
+          </Button>
+        )
+      }
       {
         firstName && (
           <div className='header__navigation header__navigation--name'>
-            <Link
-              className={classnames('header__navigation__item', {
+            <Link className={classnames('header__navigation__item', {
                 'header__navigation__item--active': pathname === '/account'
               })}
-              href='/account'
-            >
-              {firstName}
+              href='/account' >
+              { firstName }
             </Link>
             {
               !active && (
@@ -103,13 +89,19 @@ const Header = ({ active,
         )
       }
       {
-        id && (<div className='header__bell'>
-          <BellButton />
-        </div>)
+        id && (
+          <div className='header__bell'>
+            <BellButton />
+          </div>
+        )
       }
-      <div className='header__hamburger'>
-        <HamburgerButton />
-      </div>
+      {
+        visibleLinks && visibleLinks.length > 0 && (
+          <div className='header__hamburger'>
+            <HamburgerButton />
+          </div>
+        )
+      }
     </div>
   )
 }

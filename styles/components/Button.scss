@@ -1,5 +1,5 @@
 .button {
-  background-color: $medium-blue;
+  background-color: $identity-color;
   border: 1px solid transparent;
   border-radius: $border-radius;
   color: white;
@@ -12,12 +12,6 @@
   padding: 0.5em 1em;
   text-decoration: none;
   text-align: center;
-
-  &--cta {
-    padding: 0.75rem;
-    font-weight: bold;
-    font-size: 18px;
-  }
 
   &--plain {
     background-color: white;
@@ -41,14 +35,15 @@
 
   &--border {
     border: 1px solid $middle-grey;
+    border-color: $identity-color;
     border-radius: $border-radius;
   }
 
   &--inverse {
-    background-color: white;
-    color: $medium-blue;
+    background-color: white !important;
+    color: $identity-color !important;
     svg {
-      fill: $medium-blue;
+      fill: $identity-color !important;
     }
   }
 

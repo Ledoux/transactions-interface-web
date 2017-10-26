@@ -11,21 +11,6 @@
   position: fixed;
   width: 100%;
   z-index: 1000;
-  &__link {
-    color: $middle-font-color;
-    text-decoration: none;
-    &__title {
-      font-size: 12px;
-      font-weight: 500;
-      padding-left: 0.25rem;
-      width: 1rem;
-      @media (min-width: $md) {
-        font-size: 24px;
-        padding-right: 0.25rem;
-        width: auto;
-      }
-    }
-  }
   &__navigation {
     border-right: 2px solid $middle-font-color;
     &--no-border {
@@ -34,6 +19,9 @@
     padding-left: 0.25rem;
     padding-right: 0.25rem;
     position: relative;
+    @media (max-width: $sm) {
+      display: none;
+    }
     &__item {
       color: $middle-font-color;
       cursor: pointer;
@@ -43,7 +31,7 @@
       text-decoration: none;
       &--active {
         cursor: inherit;
-        color: $medium-blue;
+        color: $identity-color;
       }
     }
     &__alert {
@@ -62,18 +50,6 @@
     &--name {
       border-right: 0;
       margin-right: 0;
-    }
-    @media (max-width: $md) {
-      display: none;
-    }
-  }
-  &__sign-cta {
-    position: absolute;
-    right: 4.5rem;
-    @media (min-width: $lg) {
-      padding-top: 0;
-      position: initial;
-      margin-right: 2rem;
     }
   }
   &__name {
@@ -107,7 +83,7 @@
     }
   }
   &__hamburger {
-    background-color: $medium-blue;
+    background-color: $identity-color;
     border-color: white;
     border-radius: 100%;
     box-shadow: $box-shadow;

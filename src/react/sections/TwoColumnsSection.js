@@ -2,10 +2,13 @@ import classnames from 'classnames'
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { Button, Section } from '../components'
+import { Button, Icon, Section } from '../components'
 
-const TwoColumnsSection = ({ buttonCta,
+const TwoColumnsSection = ({ cta,
+  element,
   label,
+  href,
+  icon,
   imageSrc,
   isContentRight,
   isFullHeight,
@@ -14,8 +17,8 @@ const TwoColumnsSection = ({ buttonCta,
   title
 }) => {
   const contentElement = (
-    <div key={0} className='two-columns-section__content md-col md-col-6 center p2 flex items-center justify-center overflow-hidden'>
-      <div className='two-columns-section__content__container__title'>
+    <div key={0} className='two-columns-section__content md-col md-col-6 center flex items-center justify-center overflow-hidden'>
+      <div className='two-columns-section__content__container'>
         <div className={classnames('two-columns-section__content__container__title titlee ', {
             'flex items-center justify-center': isLessThanMediumBrowser })}>
           {title}
@@ -27,17 +30,32 @@ const TwoColumnsSection = ({ buttonCta,
             </div>
           ))
         }
-        <div className='two-columns-section__content__container__button mb1'>
-          <Button className='button button--alive'>
-            {buttonCta}
-          </Button>
-        </div>
+        {
+          cta && (
+            <div className='two-columns-section__content__container__button'>
+              <Button className='button button--alive'
+                disabled={!href}
+                href={href} >
+                {cta}
+              </Button>
+            </div>
+          )
+        }
       </div>
     </div>
   )
   const illustrationElement = (
-    <div key={1} className='two-columns-section__illustration md-col md-col-6 flex items-center justify-center'>
-      <img className='two-columns-section__illustration__image' src={imageSrc} />
+    <div key={1}
+      className='two-columns-section__illustration md-col md-col-6 flex items-center justify-center'>
+      {
+        imageSrc
+        ? <img className='two-columns-section__illustration__image' src={imageSrc} />
+        : (
+          icon
+          ? <Icon className='two-columns-section__illustration__icon' icon={icon} />
+          : element
+        )
+      }
     </div>
   )
   return (

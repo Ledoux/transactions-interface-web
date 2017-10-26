@@ -1,4 +1,3 @@
-import classnames from 'classnames'
 import React from 'react'
 
 import Icon from './Icon'
@@ -8,15 +7,9 @@ const Title = ({ className,
   text
 }) => {
   return (
-    <div className={className || 'title'}>
-      {
-        icon && (<Icon
-        className={classnames('icon title__icon', {
-          'col col-1': icon })}
-        icon={icon} />)
-      }
-      <p className={classnames('title__text', {
-        'col col-11': icon})} >
+    <div className={className || 'title flex justify-start'}>
+      { icon && <Icon className='icon title__icon' icon={icon} /> }
+      <p className='title__text'>
         {text}
       </p>
     </div>

@@ -1,9 +1,16 @@
 // Breakpoints
-$mini: 30em !default;
+/*
+$mini: 425px !default;
 $sm: 40em !default; //648px
 $md: 52em !default;
-$lg: 64em !default; // 1280px;
+$lg: 1440px !default;
 $xl: 75em !default;
+*/
+$mini: 425px !default;
+$sm: 768px !default;
+$md: 1024px !default;
+$lg: 1440px !default;
+$xl: 2560px !default;
 
 // Variables
 $border-radius: 0.25rem !default;
@@ -11,8 +18,9 @@ $box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) !default;
 $box-shadow-hover: 0 0 10px rgba(0,0,0,0.4) !default;
 $font-family: "Raleway", "Helvetica Neue", Arial, sans-serif !default;
 $header-height: 5rem !default;
-$total-background-image: linear-gradient(to bottom, $light-grey, white) !default;
+$identity-color: $identity-color !default;
 $light-font-color: $pastel-grey !default;
 $middle-font-color: $middle-grey !default;
 $dark-font-color: $dark-grey !default;
+$total-background-image: linear-gradient(to bottom, $light-grey, white) !default;
 $transition: all 0.4s ease-out !default;
