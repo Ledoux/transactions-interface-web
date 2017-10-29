@@ -2,17 +2,20 @@ import React from 'react'
 
 import Icon from './Icon'
 
-const Confirmation = () => {
+const Confirmation = ({ subtitle,
+  title
+}) => {
+  console.log('subtitle', subtitle, title)
   return (
     <div className='confirmation'>
       <div className='confirmation__illustration'>
         <Icon icon='confirmation'/>
       </div>
       <p className='confirmation__title'>
-        Thanks a lot for your help
+        { title || 'Thanks a lot for your help' }
       </p>
       <p className='confirmation__subtitle'>
-        Your changes have been submitted
+        { subtitle || 'Your changes have been submitted' }
       </p>
     </div>
   )

@@ -5,20 +5,6 @@ $md: 52em !default;
 $lg: 1440px !default;
 $xl: 75em !default;
 */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0; }
-
-.app {
-  background: linear-gradient(to bottom, #fcfcfc, white);
-  min-height: 100vh; }
-
-img {
-  max-width: 100%;
-  width: auto;
-  height: auto; }
-
 /* Slider */
 .slick-slider {
   position: relative;
@@ -319,6 +305,36 @@ img {
         padding-right: 0.25rem;
         width: auto; } }
 
+.footer {
+  background-color: rgba(39, 52, 68, 0.94);
+  color: rgba(255, 255, 255, 0.94);
+  font-family: "Raleway", "Helvetica Neue", Arial, sans-serif;
+  height: 7.5rem; }
+  .footer__contact {
+    margin-top: 0.75rem;
+    margin-right: 7.5rem; }
+    @media (min-width: 768px) {
+      .footer__contact {
+        margin-right: 10rem; } }
+    @media (min-width: 1024px) {
+      .footer__contact {
+        margin-right: 14rem; } }
+    .footer__contact__email {
+      color: #bbe265;
+      height: 2rem;
+      margin-top: 1rem; }
+  .footer__newsletter {
+    margin-left: 4rem; }
+    .footer__newsletter__input {
+      background-color: transparent;
+      border: 0;
+      border-bottom: 1px solid #fcfcfc;
+      color: rgba(255, 255, 255, 0.94);
+      font-size: 16px;
+      height: 2rem; }
+      .footer__newsletter__input:focus {
+        outline: none; }
+
 /*
  * Hamburgers
  * @description Tasty CSS-animated hamburgers
@@ -613,6 +629,16 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
       .information__list__item__date {
         color: #c5c5c5; }
 
+.input-button__input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #fcfcfc;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 16px;
+  height: 2rem; }
+  .input-button__input:focus {
+    outline: none; }
+
 .link--plain {
   color: inherit; }
 
@@ -892,75 +918,129 @@ https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css
     .warning__modal__decision__button {
       margin-right: 1rem; }
 
-.two-columns-section:last-of-type {
-  height: inherit;
-  overflow-y: hidden; }
-  @media (min-width: 1024px) {
-    .two-columns-section:last-of-type {
-      height: calc(100vh - 5rem); } }
-
-.two-columns-section__content {
-  margin-bottom: 1rem;
-  padding: 1rem; }
-  @media (min-width: 425px) {
-    .two-columns-section__content {
-      margin-bottom: 2rem;
-      padding-left: 3rem;
-      padding-right: 3rem; } }
-  @media (min-width: 768px) {
-    .two-columns-section__content {
-      margin-bottom: 1rem;
-      padding-left: 4rem;
-      padding-right: 4rem; } }
-  @media (min-width: 1024px) {
-    .two-columns-section__content {
-      padding-left: 1rem;
-      padding-right: 1rem;
-      height: 100%; } }
-  @media (min-width: 1024px) {
-    .two-columns-section__content__container {
-      padding-left: 3rem; } }
-  .two-columns-section__content__container__title {
-    min-height: 7rem; }
-    @media (min-width: 425px) {
-      .two-columns-section__content__container__title {
-        min-height: 5rem; } }
+.two-columns-section {
+  padding-bottom: 2rem; }
+  .two-columns-section:last-of-type {
+    height: inherit;
+    overflow-y: hidden; }
     @media (min-width: 1024px) {
-      .two-columns-section__content__container__title {
-        margin-bottom: 1rem;
-        min-height: auto;
-        text-align: left; } }
-  .two-columns-section__content__container__button {
-    margin-top: 1rem; }
+      .two-columns-section:last-of-type {
+        height: calc(100vh - 5rem); } }
+  .two-columns-section__content {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-top: 1rem; }
+    @media (min-width: 425px) {
+      .two-columns-section__content {
+        margin-bottom: 0.5rem;
+        padding-left: 3rem;
+        padding-right: 3rem; } }
+    @media (min-width: 768px) {
+      .two-columns-section__content {
+        margin-bottom: 0;
+        min-height: 13rem;
+        padding-bottom: 1rem;
+        padding-left: 4rem;
+        padding-right: 4rem; } }
+    @media (min-width: 1024px) {
+      .two-columns-section__content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        height: 100%; } }
+    @media (min-width: 1024px) {
+      .two-columns-section__content__container {
+        padding-left: 3rem; } }
+    .two-columns-section__content__container__title {
+      color: #777777;
+      font-family: "Raleway", "Helvetica Neue", Arial, sans-serif;
+      font-size: 25px;
+      font-weight: 200;
+      margin-bottom: 0.5rem;
+      min-height: 4rem;
+      padding-top: 1rem; }
+      @media (min-width: 768px) {
+        .two-columns-section__content__container__title {
+          font-size: 35px; } }
+      @media (min-width: 1024px) {
+        .two-columns-section__content__container__title {
+          min-height: 4.5rem;
+          font-size: 40px;
+          text-align: left; } }
+      @media (min-width: 1440px) {
+        .two-columns-section__content__container__title {
+          font-size: 60px; } }
+      @media (min-width: 2560px) {
+        .two-columns-section__content__container__title {
+          font-size: 100px; } }
+    .two-columns-section__content__container__subtitles {
+      min-height: 4rem; }
+      .two-columns-section__content__container__subtitles__item {
+        color: #c5c5c5;
+        font-family: "Raleway", "Helvetica Neue", Arial, sans-serif;
+        font-size: 12px;
+        font-weight: 200;
+        margin-bottom: 0.25rem; }
+        @media (min-width: 768px) {
+          .two-columns-section__content__container__subtitles__item {
+            font-size: 16px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 75%; } }
+        @media (min-width: 1024px) {
+          .two-columns-section__content__container__subtitles__item {
+            padding-right: 25%;
+            text-align: left;
+            width: 100%; } }
+        @media (min-width: 1440px) {
+          .two-columns-section__content__container__subtitles__item {
+            font-size: 30px; } }
+        @media (min-width: 2560px) {
+          .two-columns-section__content__container__subtitles__item {
+            font-size: 50px; } }
     @media (min-width: 1024px) {
       .two-columns-section__content__container__button {
         margin-top: 2rem;
         text-align: left; } }
-
-.two-columns-section__illustration {
-  height: 10rem;
-  width: auto; }
-  @media (min-width: 768px) {
-    .two-columns-section__illustration {
-      height: 12.5rem; } }
-  @media (min-width: 1024px) {
-    .two-columns-section__illustration {
-      height: 100%; } }
-  @media (min-width: 768px) {
-    .two-columns-section__illustration__image {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 50%; } }
-  @media (min-width: 1024px) {
-    .two-columns-section__illustration__image {
-      max-width: 100%; } }
-  .two-columns-section__illustration__icon {
-    height: 100%;
-    width: 100%; }
+  .two-columns-section__illustration {
+    min-height: 17.75rem;
+    width: auto; }
     @media (min-width: 1024px) {
-      .two-columns-section__illustration__icon {
-        max-width: 100%; } }
+      .two-columns-section__illustration {
+        min-height: 18rem; } }
     @media (min-width: 1024px) {
-      .two-columns-section__illustration__icon {
-        height: 75%;
-        width: 75%; } }
+      .two-columns-section__illustration {
+        height: 100%; } }
+    .two-columns-section__illustration__image {
+      max-height: 15rem; }
+      @media (min-width: 768px) {
+        .two-columns-section__illustration__image {
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 40%; } }
+      @media (min-width: 1024px) {
+        .two-columns-section__illustration__image {
+          max-height: 100%;
+          max-width: 100%; } }
+    .two-columns-section__illustration__icon {
+      min-height: 15rem; }
+      @media (min-width: 768px) {
+        .two-columns-section__illustration__icon {
+          height: 80%;
+          width: 80%; } }
+      @media (min-width: 1024px) {
+        .two-columns-section__illustration__icon {
+          height: 75%;
+          width: 75%; } }
+    .two-columns-section__illustration__bubbles {
+      height: 60%;
+      width: 70%;
+      position: absolute;
+      z-index: -1; }
+      @media (min-width: 768px) {
+        .two-columns-section__illustration__bubbles {
+          height: 55%;
+          width: 55%; } }
+      @media (min-width: 1024px) {
+        .two-columns-section__illustration__bubbles {
+          height: 80%;
+          width: 80%; } }

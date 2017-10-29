@@ -6,11 +6,13 @@ import Carousel from './Carousel'
 import Confirmation from './Confirmation'
 import EmblemLink from './EmblemLink'
 import Fetcher from './Fetcher'
+import Footer from './Footer'
 import HamburgerButton from './HamburgerButton'
 import Header from './Header'
 import Icon from './Icon'
 import IconButton from './IconButton'
 import Information from './Information'
+import InputButton from './InputButton'
 import Link from './Link'
 import Loading from './Loading'
 import Logo  from './Logo'
@@ -31,11 +33,13 @@ export { AppearMonitor,
   Confirmation,
   EmblemLink,
   Fetcher,
+  Footer,
   HamburgerButton,
   Header,
   Icon,
   IconButton,
   Information,
+  InputButton,
   Link,
   Loading,
   Logo,
