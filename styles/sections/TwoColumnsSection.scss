@@ -1,12 +1,6 @@
 .two-columns-section {
+  min-height: calc(100vh - #{$header-height});
   padding-bottom: 2rem;
-  &:last-of-type {
-    height: inherit;
-    overflow-y: hidden;
-    @media(min-width: $md) {
-      height: calc(100vh - #{$header-height});
-    }
-  }
   &__content {
     margin-bottom: 0.5rem;
     padding-bottom: 0.5rem;

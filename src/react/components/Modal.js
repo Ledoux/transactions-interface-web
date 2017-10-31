@@ -18,23 +18,18 @@ const Modal = ({ content,
   return (
     <div className={classes}
       role='dialog'
-      onClick={isOutCloseButton && onCloseClick}
-    >
-      <div
-        className='modal__dialog'
+      onClick={() => isOutCloseButton && onCloseClick()}>
+      <div className='modal__dialog'
         role='document'
         onClick={e => {
           e.nativeEvent.stopImmediatePropagation() // Prevent click bubbling and closing modal
           e.stopPropagation()
-        }}
-      >
+        }}>
         {
           isCornerCloseButton && (
-            <button
-              type='button'
+            <button type='button'
               className='button button--plain modal__close'
-              onClick={onCloseClick}
-            >
+              onClick={onCloseClick}>
               ✕
             </button>
           )
@@ -45,12 +40,10 @@ const Modal = ({ content,
         {
           isCtaCloseButton && (
             <div className='modal__close-cta'>
-              <IconButton
-                className='button button--alive icon-button'
+              <IconButton className='button button--alive icon-button'
                 icon='cross'
                 onClick={onCloseClick}
-                text='Close'
-              />
+                text='Close' />
             </div>
           )
         }
