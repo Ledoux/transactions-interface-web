@@ -16,6 +16,7 @@ const Header = ({ active,
   firstName,
   id,
   imageUrl,
+  isSign,
   isSigninPage,
   LogoutLinkComponent,
   menuLinks,
@@ -52,7 +53,7 @@ const Header = ({ active,
         })
       }
       {
-        !firstName && !isSigninPage && (
+        isSign && !firstName && !isSigninPage && (
           <Button className='button button--alive button--inverse button--border'
             href='/signin'>
               Sign In
@@ -106,7 +107,7 @@ const Header = ({ active,
   )
 }
 
-Header.defaultProps = {
+Header.defaultProps = { isSign: true,
   LogoutLinkComponent: LogoutLink
 }
 

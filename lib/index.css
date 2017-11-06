@@ -199,7 +199,7 @@ $xl: 75em !default;
     .button--shadow:hover, .button--shadow:focus {
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }
   .button--disabled {
-    opacity: 0.1; }
+    opacity: 0.25; }
   .button--alive:hover, .button--alive:focus {
     transform: scale(1.04);
     transition: all 0.4s ease-out; }
