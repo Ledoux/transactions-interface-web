@@ -8,7 +8,6 @@ const TwoColumnsSection = ({ browser,
   bubblesType,
   cta,
   element,
-  label,
   href,
   icon,
   imageSrc,
@@ -16,6 +15,7 @@ const TwoColumnsSection = ({ browser,
   isFullHeight,
   isGreaterThanMediumBrowser,
   subtitles,
+  tag,
   title
 }) => {
   const contentElement = (
@@ -39,6 +39,7 @@ const TwoColumnsSection = ({ browser,
             <div className='two-columns-section__content__container__button'>
               <Button className='button button--alive'
                 disabled={!href}
+                id={`button--${tag}`}
                 href={href} >
                 {cta}
               </Button>
@@ -67,7 +68,7 @@ const TwoColumnsSection = ({ browser,
   )
   return (
     <Section extraClass={classnames('two-columns-section', {
-        [`two-columns-section--${label}`]: label
+        [`two-columns-section--${tag}`]: tag
       })}
       isFullHeight={isGreaterThanMediumBrowser}>
       {

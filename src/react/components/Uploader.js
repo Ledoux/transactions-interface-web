@@ -1,55 +1,33 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Dropzone from 'react-dropzone'
+import { compose } from 'redux'
+import { Uploader as withState } from 'transactions-interface-state'
+import { withForcedProps } from 'transactions-redux-react'
 
-class Uploader extends Component {
-  constructor () {
-    super ()
-    this.handleDropUpload = this._handleDropUpload.bind(this)
-  }
-  _handleDropUpload (files) {
-    const { fileName,
-      isOverride,
-      isWithDate,
-      onUpload
-    } = this.props
-    const uploadedFile = files[0]
-    uploadedFile.test = 'blablabla'
-    const localFormData = new FormData()
-    localFormData.append('uploader', uploadedFile)
-    let url = `/upload/${fileName || uploadedFile.name}`
-    if (isWithDate) {
-      const date = Date.now()
-      url = `${url}-${date}`
-    }
-    if (isOverride) {
-      url = `${url}?isOverride=true`
-    }
-    window.fetch(url, {
-      body: localFormData,
-      method: 'POST'
-    }).then(result => result.json())
-      .then(json => {
-        if (onUpload) {
-          onUpload(json)
-        }
-        window.URL.revokeObjectURL(uploadedFile.preview)
-      })
-  }
-  render () {
-    const { handleDropUpload } = this
-    const { children,
-      className
-    } = this.props
-    return (
-      <Dropzone
-        className={className || 'uploader'}
-        multiple={false}
-        accept="image/*"
-        onDrop={handleDropUpload}>
-        { children || <p>Drop an image or click to select a file to upload.</p> }
-      </Dropzone>
-    )
-  }
+const Uploader = ({ children,
+  className,
+  handleDropUpload
+}) => {
+  return (
+    <Dropzone className={className || 'uploader'}
+      multiple={false}
+      accept="image/*"
+      onDrop={handleDropUpload}>
+      { children || <p>Drop an image or click to select a file to upload.</p> }
+    </Dropzone>
+  )
 }
 
-export default Uploader
+const hocs = []
+
+if (typeof window !== 'undefined') {
+  hocs.push(
+    withForcedProps({
+      fetch: window.fetch,
+      revokeObjectURL: window.URL.revokeObjectURL
+    })
+  )
+}
+hocs.push(withState)
+
+export default compose(...hocs)(Uploader)

@@ -19,20 +19,13 @@ const Footer = ({ text,
       </div>
       <div className='footer__newsletter'>
         <div className='mb1'>
-        Sign up for project updates
+          Sign up for project updates
         </div>
         <div>
-          {/*
-          <input className='footer__newsletter__input mr1'
-            placeholder='Your email'/>
-          <Button className='button button--alive' onClick={onSubscribeClick}>
-            Subscribe
-          </Button>
-          */
-          }
           <InputButton cta='Subscribe'
             placeholder='Your email'
-            onClick={onSubscribeClick} />
+            onClick={onSubscribeClick}
+            tag='subscribe' />
         </div>
       </div>
     </div>

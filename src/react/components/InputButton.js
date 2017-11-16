@@ -7,14 +7,18 @@ const InputButton = ({
   cta,
   onButtonClick,
   onInputChange,
-  placeholder
+  placeholder,
+  tag
 }) => {
   return (
     <div className='input-button'>
       <input className='input-button__input mr1'
         onChange={onInputChange}
-        placeholder={placeholder} />
-      <Button className='button button--alive' onClick={onButtonClick} >
+        placeholder={placeholder}
+        {...tag ? { id: `input-button__input--${tag}` } : null }/>
+      <Button className='button button--alive'
+        onClick={onButtonClick}
+        {...tag ? { id: `input-button__button--${tag}` } : null } >
         {cta}
       </Button>
     </div>

@@ -15,6 +15,7 @@ const Button = ({ children,
   onClick,
   onMouseDown,
   onMouseOver,
+  tag,
   target,
   type
 }) => {
