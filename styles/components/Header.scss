@@ -1,5 +1,5 @@
 .header {
-  background-color: white;
+  background-color: transparent;
   box-shadow: $box-shadow;
   color: $middle-font-color;
   font-family: $font-family;
@@ -105,6 +105,6 @@
     &:focus {
       box-shadow: $box-shadow-hover;
     }
-    transition: $transition;
+    transition: $resize-transition;
   }
 }

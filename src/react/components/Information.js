@@ -8,9 +8,8 @@ const Information = ({ activePathname,
   notifications,
   showModal
 }) => {
-  const classes = classnames({
-    'information--showing': isActive
-  }, 'information')
+  const classes = classnames({ 'information--showing': isActive },
+    'information')
   return (
     <div className={classes} onClick={() => closeInformation()}>
       <nav className='information__list'
@@ -30,7 +29,7 @@ const Information = ({ activePathname,
             }, index) => {
               const notificationDate = new Date()
               date && notificationDate.setMilliseconds(date)
-              const notificationDateString =notificationDate && notificationDate
+              const notificationDateString = notificationDate && notificationDate
                 .toDateString()
                 .split(' ')
                 .slice(0, -1)

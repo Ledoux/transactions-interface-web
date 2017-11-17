@@ -9,9 +9,9 @@
   border-left: 8px solid black;
   margin: 0.2rem;
   outline: none;
-  transition: $transition;
+  transition: $resize-transition;
   &--expanded {
     transform: rotate(90deg);
-    transition: $transition;
+    transition: $resize-transition;
   }
 }

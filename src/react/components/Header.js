@@ -20,12 +20,12 @@ const Header = ({ active,
   isSigninPage,
   LogoutLinkComponent,
   menuLinks,
+  pageName,
   pathname,
-  state
+  visibleLinks
 }) => {
-  const { visibleLinks } = state
   return (
-    <div className='header flex justify-start items-center'>
+    <div className={`header header--${pageName} flex justify-start items-center`}>
       <Navigation LogoutLinkComponent={LogoutLinkComponent}
         visibleLinks={visibleLinks} />
       <EmblemLink />
