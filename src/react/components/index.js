@@ -18,6 +18,7 @@ import Loading from './Loading'
 import Logo  from './Logo'
 import Modal from './Modal'
 import Navigation from './Navigation'
+import Placeholder from './Placeholder'
 import Section from './Section'
 import SwitchButton from './SwitchButton'
 import Title from './Title'
@@ -45,6 +46,7 @@ export { AppearMonitor,
   Logo,
   Modal,
   Navigation,
+  Placeholder,
   Tree,
   Section,
   SwitchButton,
