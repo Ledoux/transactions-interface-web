@@ -6,8 +6,10 @@ import { Button, Icon, Section } from '../components'
 
 const TwoColumnsSection = ({ browser,
   bubblesType,
+  buttonExtraClass,
   cta,
   element,
+  extraClass,
   href,
   icon,
   imageSrc,
@@ -37,10 +39,13 @@ const TwoColumnsSection = ({ browser,
         {
           cta && (
             <div className='two-columns-section__content__container__button'>
-              <Button className='button button--alive'
+              <Button className={classnames('button button--alive', {
+                [buttonExtraClass]: buttonExtraClass
+              })}
                 disabled={!href}
                 id={`button--${tag}`}
-                href={href} >
+                href={href}
+              >
                 {cta}
               </Button>
             </div>
@@ -67,8 +72,9 @@ const TwoColumnsSection = ({ browser,
     </div>
   )
   return (
-    <Section extraClass={classnames('two-columns-section', {
-        [`two-columns-section--${tag}`]: tag
+    <Section extraClass={classnames('section two-columns-section', {
+        [`two-columns-section--${tag}`]: tag,
+        [extraClass]: extraClass
       })}
       isFullHeight={isGreaterThanMediumBrowser}>
       {

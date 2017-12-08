@@ -40,7 +40,7 @@
         right: 1.25rem;
       }
       border: 11px solid transparent;
-      border-bottom-color: $pastel-grey;
+      border-bottom-color: $light-grey;
     }
     &::after {
       right: 4.65rem;
@@ -53,7 +53,7 @@
     &__item {
       background-color: white;
       border-bottom: 1px solid $medium-grey;
-      color: $middle-font-color;
+      color: $dark-grey;
       font-family: $font-family;
       font-size: 14px;
       font-weight: 500;
@@ -88,7 +88,7 @@
       &__html {
       }
       &__date {
-        color: $light-font-color;
+        color: $medium-grey;
       }
     }
   }

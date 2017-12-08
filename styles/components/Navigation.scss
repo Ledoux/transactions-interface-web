@@ -37,7 +37,7 @@
     &::before {
       right: 1.4rem;
       border: 11px solid transparent;
-      border-bottom-color: $pastel-grey;
+      border-bottom-color: $light-grey;
     }
     &::after {
       right: 1.6rem;
@@ -49,7 +49,7 @@
       width: 100%; // needed when used with Button
       &__link {
         border-bottom: 1px solid $light-grey;
-        color: $middle-font-color;
+        color: $dark-grey;
         display: block;
         font-family: $font-family;
         font-size: 14px;

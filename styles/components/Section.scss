@@ -1,8 +1,9 @@
 .section {
-  position: relative;
+  min-height: 100vh;
   padding-left: 2rem;
   padding-right: 2rem;
   padding-bottom: 3.5rem;
+  position: relative;
   z-index: 1;
   @media (min-width: $md) {
     padding-top: 3.5rem;
@@ -10,8 +11,8 @@
   @media (min-width: $lg) {
     padding-bottom: 5rem;
   }
-  &--full-height {
-    height: calc(100vh - #{$header-height});
+  &--top {
+    min-height: calc(100vh - #{$header-height});
   }
   &__inner {
     @media (min-width: $sm) {

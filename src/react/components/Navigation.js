@@ -24,7 +24,7 @@ const Navigation = ({ closeNavigation,
         e.stopPropagation()
       }}>
         {
-          visibleLinks.map(({ external,
+          visibleLinks && visibleLinks.map(({ external,
             label,
             target,
             path
@@ -56,15 +56,16 @@ const Navigation = ({ closeNavigation,
           })
         }
         {
-          email && LogoutLinkComponent && (<div
-          className='navigation__list__item-container'
-          key={visibleLinks.length + 1}
-          >
-            <LogoutLinkComponent
-              afterShowModal={closeNavigation}
-              className='logout-link navigation__list__item__link'
-            />
-          </div>)
+          email && LogoutLinkComponent && (
+            <div className='navigation__list__item-container'
+              key={visibleLinks.length + 1}
+            >
+              <LogoutLinkComponent
+                afterShowModal={closeNavigation}
+                className='logout-link navigation__list__item__link'
+              />
+            </div>
+          )
         }
       </nav>
     </div>

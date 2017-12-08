@@ -1,7 +1,10 @@
 .button {
   background-color: $identity-color;
   border: 1px solid transparent;
-  border-radius: $border-radius;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
   color: white;
   cursor: pointer;
   display: inline-block;
@@ -13,42 +16,30 @@
   text-decoration: none;
   text-align: center;
 
-  &--plain {
-    background-color: white;
-    border: 3px solid black;
-    border-radius: $border-radius;
-    color: black;
-    padding: 0.5rem;
-    @media (min-width: $lg) {
-      padding: 0.875em 1.375em;
-    }
-    .icon {
-      fill: black;
-      height: 1.5rem;
-      width: 1.5rem;
-      @media (min-width: $lg) {
-        height: 3rem;
-        width: 3rem;
-      }
+  &--alive {
+    &:hover,
+    &:focus {
+      transform: scale(1.04);
+      transition: all 0.4s ease-out;
     }
   }
 
-  &--border {
-    border: 1px solid $middle-grey;
-    border-color: $identity-color;
-    border-radius: $border-radius;
+  &--disabled {
+    opacity: 0.25;
   }
 
   &--inverse {
     background-color: white !important;
+    border-color: $identity-color !important;
     color: $identity-color !important;
     svg {
       fill: $identity-color !important;
     }
   }
 
-  &--small {
-    font-size: 10px;
+  &--selected {
+    box-shadow: $box-shadow-hover;
+    transform: scale(1.04);
   }
 
   &--shadow {
@@ -58,23 +49,6 @@
       box-shadow: $box-shadow-hover;
     }
     transition: all 0.4s ease-out;
-  }
-
-  &--disabled {
-    opacity: 0.25;
-  }
-
-  &--alive {
-    &:hover,
-    &:focus {
-      transform: scale(1.04);
-      transition: all 0.4s ease-out;
-    }
-  }
-
-  &--selected {
-    box-shadow: $box-shadow-hover;
-    transform: scale(1.04);
   }
 
   &[disabled] {

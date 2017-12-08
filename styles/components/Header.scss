@@ -1,18 +1,18 @@
 .header {
   background-color: transparent;
   box-shadow: $box-shadow;
-  color: $middle-font-color;
+  color: $dark-grey;
   font-family: $font-family;
   height: $header-height;
   padding-left: 2.5%;
   padding-right: 2.5%;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
-  position: fixed;
+  
   width: 100%;
   z-index: 1000;
   &__navigation {
-    border-right: 2px solid $middle-font-color;
+    border-right: 2px solid $dark-grey;
     &--no-border {
       border-right: 0;
     }
@@ -23,7 +23,7 @@
       display: none;
     }
     &__item {
-      color: $middle-font-color;
+      color: $dark-grey;
       cursor: pointer;
       font-family: $font-family;
       font-size: 14px;

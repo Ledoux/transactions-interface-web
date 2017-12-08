@@ -7,15 +7,13 @@ $xl: 2560px !default;
 
 // Variables
 $border: 1px solid $light-grey !default;
-$border-radius: 0.25rem !default;
+$border-radius: 0.5rem !default;
+$button-border-radius: 2rem !default;
 $box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) !default;
 $box-shadow-hover: 0 0 10px rgba(0,0,0,0.4) !default;
 $font-family: "Raleway", "Helvetica Neue", Arial, sans-serif !default;
 $header-height: 5rem !default;
-$identity-color: $identity-color !default;
-$light-font-color: $pastel-grey !default;
-$middle-font-color: $middle-grey !default;
-$dark-font-color: $dark-grey !default;
-$total-background-image: linear-gradient(to bottom, $light-grey, white) !default;
+$identity-color: $dark-grey !default;
+$total-background-image: linear-gradient(to bottom, $very-very-light-grey, white) !default;
 $opacity-transition: all 1s ease-out !default;
 $resize-transition: all 0.4s ease-out !default;
