@@ -10,12 +10,17 @@
   display: inline-block;
   fill: white;
   font-family: $font-family;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 500;
   padding: 0.5em 1em;
   text-decoration: none;
   text-align: center;
-
+  @media (min-width: $mini) {
+    font-size: 14px;
+  }
+  @media (min-width: $lg) {
+    font-size: 18px;
+  }
   &--alive {
     &:hover,
     &:focus {
@@ -23,11 +28,9 @@
       transition: all 0.4s ease-out;
     }
   }
-
   &--disabled {
     opacity: 0.25;
   }
-
   &--inverse {
     background-color: white !important;
     border-color: $identity-color !important;
@@ -36,12 +39,10 @@
       fill: $identity-color !important;
     }
   }
-
   &--selected {
     box-shadow: $box-shadow-hover;
     transform: scale(1.04);
   }
-
   &--shadow {
     box-shadow: $box-shadow;
     &:hover,
@@ -50,11 +51,9 @@
     }
     transition: all 0.4s ease-out;
   }
-
   &[disabled] {
     cursor: not-allowed;
   }
-
   &:focus {
     outline: none;
   }

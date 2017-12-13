@@ -29,6 +29,7 @@ const Header = ({ active,
       <Navigation LogoutLinkComponent={LogoutLinkComponent}
         visibleLinks={visibleLinks} />
       <EmblemLink />
+      <div className='header__left flex items-center' />
       <div className='header__empty flex-auto' />
       {
         visibleLinks && visibleLinks.map(({ label, path }, index) => {

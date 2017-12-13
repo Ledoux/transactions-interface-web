@@ -1,5 +1,5 @@
 .bell-button {
-  background: white;
+  background: transparent;
   border: 0;
   cursor: pointer;
   opacity: 0.75;
@@ -13,33 +13,45 @@
     opacity: 0.1;
   }
   &__icon {
-    height: 1rem;
-    width: 1rem;
+    height: 1.5rem;
+    width: 1.5rem;
     @media (min-width: $md) {
-      height: 1.5rem;
-      width: 1.5rem;
+      height: 1.75rem;
+      width: 1.75rem;
+    }
+    @media (min-width: $lg) {
+      height: 2.5rem;
+      width: 2.5rem;
     }
   }
   &__alert {
     position: absolute;
     top: -0.25rem;
-    right: 0.1rem;
-    height: 0.5rem;
-    width: 0.5rem;
+    right: 0;
+    height: 0.75rem;
+    width: 0.75rem;
     @media (min-width: $md) {
       height: 1rem;
       width: 1rem;
       right: -0.25rem;
     }
+    @media (min-width: $lg) {
+      right: 0;
+    }
     &__circle {
       fill: $identity-color;
-      cx: 0.35rem;
-      cy: 0.35rem;
-      r: 0.15rem;
+      cx: 0.4rem;
+      cy: 0.4rem;
+      r: 0.3rem;
       @media (min-width: $md) {
-        cx: 0.5rem;
+        cx: 0.45rem;
         cy: 0.5rem;
         r: 0.4rem;
+      }
+      @media (min-width: $lg) {
+        cx: 0.45rem;
+        cy: 0.55rem;
+        r: 0.5rem;
       }
     }
   }

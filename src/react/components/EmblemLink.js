@@ -4,15 +4,19 @@ import { EmblemLink as withState } from 'transactions-interface-state'
 import Link from './Link'
 import Logo from './Logo'
 
-const EmblemLink = ({ siteLabel }) => {
+const EmblemLink = ({ isTitle, siteLabel }) => {
   return (
     <Link className='emblem-link flex justify-start items-center' href='/home'>
       <div className='emblem-link__logo'>
         <Logo />
       </div>
-      <div className='emblem-link__title'>
-        { siteLabel }
-      </div>
+      {
+        isTitle && (
+          <div className='emblem-link__title'>
+            { siteLabel }
+          </div>
+        )
+      }
     </Link>
   )
 }

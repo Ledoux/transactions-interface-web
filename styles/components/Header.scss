@@ -8,9 +8,11 @@
   padding-right: 2.5%;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
-  
   width: 100%;
   z-index: 1000;
+  @media (min-width: $lg) {
+    padding-top: 1rem;
+  }
   &__navigation {
     border-right: 2px solid $dark-grey;
     &--no-border {
@@ -28,10 +30,17 @@
       font-family: $font-family;
       font-size: 14px;
       font-weight: 500;
+      padding-left: 0.5rem;
       text-decoration: none;
       &--active {
         cursor: inherit;
         color: $identity-color;
+      }
+      @media (min-width: $lg) {
+        font-size: 22px;
+      }
+      &:last-of-type {
+        margin-right: 0.5rem;
       }
     }
     &__alert {
@@ -59,25 +68,33 @@
     padding-right: 0.5rem;
   }
   &__avatar {
-    height: 2.5rem;
-    margin-right: 0.25rem;
-    width: 2.5rem;
+    height: 3rem;
+    margin-right: 0.5rem;
+    width: 3rem;
     @media (min-width: $md) {
       height: 3.5rem;
       margin-right: 1rem;
       width: 3.5rem;
     }
+    @media (min-width: $lg) {
+      height: 4rem;
+      width: 4rem;
+    }
     &__img {
-      height: 2.5rem;
-      width: 2.5rem;
+      height: 3rem;
+      width: 3rem;
       @media (min-width: $md) {
         height: 3.5rem;
         width: 3.5rem;
       }
+      @media (min-width: $lg) {
+        height: 4rem;
+        width: 4rem;
+      }
     }
   }
   &__bell {
-    margin-right: 0.25rem;
+    margin-right: 0.5rem;
     @media (min-width: $md) {
       margin-right: 0;
     }

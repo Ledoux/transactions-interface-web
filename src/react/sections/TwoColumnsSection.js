@@ -5,7 +5,8 @@ import { connect } from 'react-redux'
 import { Button, Icon, Section } from '../components'
 
 const TwoColumnsSection = ({ browser,
-  bubblesType,
+  iconTag,
+  iconType,
   buttonExtraClass,
   cta,
   element,
@@ -15,7 +16,7 @@ const TwoColumnsSection = ({ browser,
   imageSrc,
   isContentRight,
   isFullHeight,
-  isGreaterThanMediumBrowser,
+  isSplit,
   subtitles,
   tag,
   title
@@ -24,7 +25,7 @@ const TwoColumnsSection = ({ browser,
     <div key={0} className='two-columns-section__content md-col md-col-6 center flex items-center justify-center overflow-hidden'>
       <div className='two-columns-section__content__container'>
         <div className={classnames('two-columns-section__content__container__title', {
-            'flex items-center justify-center': !isGreaterThanMediumBrowser })}>
+            'flex items-center': !isSplit })}>
           {title}
         </div>
         <div className='two-columns-section__content__container__subtitles'>
@@ -57,9 +58,9 @@ const TwoColumnsSection = ({ browser,
   const illustrationElement = (
     <div key={1}
       className='two-columns-section__illustration md-col md-col-6 flex items-center justify-center'>
-      { bubblesType && <Icon className={`two-columns-section__illustration__bubbles
-        two-columns-section__illustration__bubbles--${bubblesType}`}
-        icon={`bubbles_${bubblesType}`} /> }
+      { iconTag && <Icon className={`two-columns-section__illustration__icons
+        two-columns-section__illustration__icons--${iconTag}`}
+        icon={`${iconType}_${iconTag}`} /> }
       {
         imageSrc
         ? <img className='two-columns-section__illustration__image' src={imageSrc} />
@@ -72,13 +73,13 @@ const TwoColumnsSection = ({ browser,
     </div>
   )
   return (
-    <Section extraClass={classnames('section two-columns-section', {
+    <Section extraClass={classnames('two-columns-section', {
         [`two-columns-section--${tag}`]: tag,
         [extraClass]: extraClass
       })}
-      isFullHeight={isGreaterThanMediumBrowser}>
+      isFullHeight={isSplit}>
       {
-        isGreaterThanMediumBrowser && isContentRight
+        isSplit && isContentRight
         ? [illustrationElement, contentElement]
         : [contentElement, illustrationElement]
       }
@@ -87,6 +88,8 @@ const TwoColumnsSection = ({ browser,
 }
 
 export default connect(
-  ({ browser: { greaterThan: { medium } } }) =>
-    ({ isGreaterThanMediumBrowser: medium })
+  ({ browser: { greaterThan: { medium, large } } }) =>
+    ({
+      isSplit: large
+    })
 )(TwoColumnsSection)

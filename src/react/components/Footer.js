@@ -4,7 +4,8 @@ import { Footer as withState } from 'transactions-interface-state'
 import Button from './Button'
 import InputButton from './InputButton'
 
-const Footer = ({ text,
+const Footer = ({ siteEmail,
+  text,
   onSubscribeClick
 }) => {
   return (
@@ -14,7 +15,7 @@ const Footer = ({ text,
           Email us for further information
         </div>
         <div className='footer__contact__email'>
-          info@reval.io
+          {siteEmail}
         </div>
       </div>
       <div className='footer__newsletter'>
