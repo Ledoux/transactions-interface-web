@@ -13,6 +13,7 @@ import Link from './Link'
 import Navigation from './Navigation'
 
 const Header = ({ active,
+  children,
   firstName,
   id,
   imageUrl,
@@ -61,6 +62,7 @@ const Header = ({ active,
           </Button>
         )
       }
+      { children }
       {
         firstName && (
           <div className='header__navigation header__navigation--name'>
