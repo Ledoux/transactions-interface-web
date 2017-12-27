@@ -8,6 +8,7 @@ import BellButton from './BellButton'
 import Button from './Button'
 import EmblemLink from './EmblemLink'
 import Icon from './Icon'
+import Go from './Go'
 import HamburgerButton from './HamburgerButton'
 import Link from './Link'
 import Navigation from './Navigation'
@@ -55,6 +56,9 @@ const Header = ({ active,
         })
       }
       {
+        <Go />
+      }
+      {
         isSign && !firstName && !isSigninPage && (
           <Button className='button button--alive button--inverse button--border'
             href='/signin'>
@@ -66,12 +70,6 @@ const Header = ({ active,
       {
         firstName && (
           <div className='header__navigation header__navigation--name'>
-            <Link className={classnames('header__navigation__item', {
-                'header__navigation__item--active': pathname === '/account'
-              })}
-              href='/account' >
-              { firstName }
-            </Link>
             {
               !active && (
                 <svg className='header__navigation__alert'>
@@ -84,12 +82,12 @@ const Header = ({ active,
       }
       {
         firstName && (
-          <div className='header__avatar'>
+          <Link className='header__avatar' href='/account'>
             <Avatar className='avatar header__avatar__img'
               id={id}
               imageUrl={imageUrl}
             />
-          </div>
+          </Link>
         )
       }
       {

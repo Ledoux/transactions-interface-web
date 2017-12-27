@@ -1,17 +1,21 @@
+import classnames from 'classnames'
 import React from 'react'
 
 import Icon from './Icon'
 
 const Title = ({ className,
+  extraClass,
   icon,
   text
 }) => {
   return (
-    <div className={className || 'title flex justify-start'}>
+    <div className={classnames(className || 'title flex justify-start', {
+      [extraClass]: extraClass
+    })}>
       { icon && <Icon className='icon title__icon' icon={icon} /> }
-      <p className='title__text'>
+      <div className='title__text'>
         {text}
-      </p>
+      </div>
     </div>
   )
 }
