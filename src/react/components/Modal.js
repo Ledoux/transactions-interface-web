@@ -5,18 +5,17 @@ import { Modal as withState } from 'transactions-interface-state'
 import IconButton from './IconButton'
 import Warning from './Warning'
 
-const Modal = ({ content,
+const Modal = ({ ContentComponent,
   isActive,
   isCtaCloseButton,
   isCornerCloseButton,
   isOutCloseButton,
   onCloseClick
 }) => {
-  const classes = classnames({
-    'modal--active': isActive
-  }, 'modal')
   return (
-    <div className={classes}
+    <div className={classnames({
+      'modal--active': isActive
+    }, 'modal')}
       role='dialog'
       onClick={() => isOutCloseButton && onCloseClick()}>
       <div className='modal__dialog'
@@ -35,7 +34,7 @@ const Modal = ({ content,
           )
         }
         <div className='modal__content'>
-          {content}
+          { ContentComponent && <ContentComponent /> }
         </div>
         {
           isCtaCloseButton && (

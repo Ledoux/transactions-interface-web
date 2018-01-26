@@ -1,17 +1,21 @@
 import React from 'react'
+import { withRouter } from 'react-router'
 import { Go as withState } from 'transactions-interface-state'
 
 import IconButton from './IconButton'
 
-const Go = ({ onBackClick,
+const Go = ({ isBack,
+  isForward,
+  history,
+  onBackClick,
   onForwardClick
 }) => {
   return (
     <div>
-      <IconButton icon='chevron_left' onClick={onBackClick} />
-      <IconButton icon='chevron_right' onClick={onForwardClick} />
+      { history.length > 1 && <IconButton icon='chevron_left' onClick={onBackClick} /> }
+      { history.action === 'POP' && <IconButton icon='chevron_right' onClick={onForwardClick} /> }
     </div>
   )
 }
 
-export default withState(Go)
+export default withRouter(withState(Go))
