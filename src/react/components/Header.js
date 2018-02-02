@@ -56,7 +56,7 @@ const Header = ({ active,
         })
       }
       {
-        <Go />
+        /*<Go />*/
       }
       {
         isSign && !firstName && !isSigninPage && (
